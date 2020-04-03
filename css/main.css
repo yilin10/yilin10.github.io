@@ -177,7 +177,7 @@ body {
   background: var(--body-bg-color);
   color: var(--text-color);
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 0.8em;
+  font-size: 0.85em;
   line-height: 2;
 }
 @media (max-width: 991px) {
@@ -1173,7 +1173,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d011a8;
+  background: #ffb42a;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1364,7 +1364,7 @@ pre .javascript .function {
 }
 .site-state-item-count {
   display: block;
-  font-size: 1em;
+  font-size: 1.05em;
   font-weight: 600;
   text-align: center;
 }
@@ -1401,7 +1401,7 @@ pre .javascript .function {
 }
 .languages {
   display: inline-block;
-  font-size: 0.95em;
+  font-size: 1em;
   position: relative;
 }
 .languages .lang-select-label span {
@@ -1523,7 +1523,7 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .post-body {
-    font-size: 0.95em;
+    font-size: 1em;
   }
 }
 .post-body .exturl .fa {
@@ -1572,7 +1572,7 @@ pre .javascript .function {
   }
 }
 .posts-collapse .collection-title {
-  font-size: 0.95em;
+  font-size: 1em;
   position: relative;
 }
 .posts-collapse .collection-title::before {
@@ -1774,7 +1774,7 @@ pre .javascript .function {
   margin: 0;
 }
 .posts-expand .post-header {
-  font-size: 0.95em;
+  font-size: 1em;
 }
 .posts-expand .post-title {
   font-size: 1.125em;
