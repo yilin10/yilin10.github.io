@@ -1155,7 +1155,7 @@ pre .javascript .function {
 }
 .site-description {
   color: #999;
-  font-size: 1em;
+  font-size: 0.9em;
   margin-top: 5px;
   text-align: center;
 }
@@ -1173,7 +1173,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #915bad;
+  background: #d6c246;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1364,7 +1364,7 @@ pre .javascript .function {
 }
 .site-state-item-count {
   display: block;
-  font-size: 1.25em;
+  font-size: 1em;
   font-weight: 600;
   text-align: center;
 }
@@ -1401,7 +1401,7 @@ pre .javascript .function {
 }
 .languages {
   display: inline-block;
-  font-size: 1.125em;
+  font-size: 0.95em;
   position: relative;
 }
 .languages .lang-select-label span {
@@ -1523,7 +1523,7 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .post-body {
-    font-size: 1.125em;
+    font-size: 0.95em;
   }
 }
 .post-body .exturl .fa {
@@ -1572,7 +1572,7 @@ pre .javascript .function {
   }
 }
 .posts-collapse .collection-title {
-  font-size: 1.125em;
+  font-size: 0.95em;
   position: relative;
 }
 .posts-collapse .collection-title::before {
@@ -1589,7 +1589,7 @@ pre .javascript .function {
   width: 10px;
 }
 .posts-collapse .collection-year {
-  font-size: 1.5em;
+  font-size: 1.125em;
   font-weight: bold;
   margin: 60px 0;
   position: relative;
@@ -1774,10 +1774,10 @@ pre .javascript .function {
   margin: 0;
 }
 .posts-expand .post-header {
-  font-size: 1.125em;
+  font-size: 0.95em;
 }
 .posts-expand .post-title {
-  font-size: 1.5em;
+  font-size: 1.125em;
   font-weight: normal;
   margin: initial;
   text-align: center;
