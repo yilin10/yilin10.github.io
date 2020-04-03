@@ -20,30 +20,37 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Thoughts.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Parking Site">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="机器学习实验项目_波士顿房价预测 0. 项目背景这是一个几年之前的机器学习练习项目。数据来源是UCI的机器学习知识库数据集。该数据从1978年开始，共506个数据点，涵盖了马萨诸塞州波士顿郊区的房屋信息数据。 在此项目中，我会使用这些数据训练并测试一个可用的预测模型，并对模型的性能和预测能力进行测试。训练好的模型可以对房屋的价值进行预测，对某些工作中，应用这个模型可以帮助他们了解房屋的潜在价值，是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Boston housing Predictor">
+<meta property="og:url" content="http://yoursite.com/2020/04/03/pj0/index.html">
 <meta property="og:site_name" content="Parking Site">
-<meta property="og:description" content="Thoughts.">
+<meta property="og:description" content="机器学习实验项目_波士顿房价预测 0. 项目背景这是一个几年之前的机器学习练习项目。数据来源是UCI的机器学习知识库数据集。该数据从1978年开始，共506个数据点，涵盖了马萨诸塞州波士顿郊区的房屋信息数据。 在此项目中，我会使用这些数据训练并测试一个可用的预测模型，并对模型的性能和预测能力进行测试。训练好的模型可以对房屋的价值进行预测，对某些工作中，应用这个模型可以帮助他们了解房屋的潜在价值，是">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/images/output_22_0.png">
+<meta property="og:image" content="http://yoursite.com/images/output_26_0.png">
+<meta property="article:published_time" content="2020-04-03T15:42:53.000Z">
+<meta property="article:modified_time" content="2020-04-03T14:20:27.380Z">
 <meta property="article:author" content="Yilin">
+<meta property="article:tag" content="project">
+<meta property="article:tag" content="machine learning">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/output_22_0.png">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/04/03/pj0/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Parking Site</title>
+  <title>Boston housing Predictor | Parking Site</title>
   
 
 
@@ -157,9 +164,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -175,10 +183,9 @@
       <meta itemprop="name" content="Parking Site">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/03/pj0/" class="post-title-link" itemprop="url">Boston housing Predictor</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Boston housing Predictor
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -202,7 +209,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>机器学习实验项目_波士顿房价预测</p>
+        <p>机器学习实验项目_波士顿房价预测</p>
 <h2 id="0-项目背景"><a href="#0-项目背景" class="headerlink" title="0. 项目背景"></a>0. 项目背景</h2><p>这是一个几年之前的机器学习练习项目。数据来源是UCI的机器学习知识库数据集。该数据从1978年开始，共506个数据点，涵盖了马萨诸塞州波士顿郊区的房屋信息数据。</p>
 <p>在此项目中，我会使用这些数据训练并测试一个可用的预测模型，并对模型的性能和预测能力进行测试。训练好的模型可以对房屋的价值进行预测，对某些工作中，应用这个模型可以帮助他们了解房屋的潜在价值，是非常实用的。</p>
 <p>从学习的角度来看，做这个项目则是可以初步了解机器学习的实践方法，了解如何处理数据，并熟悉 python 和 sklearn在项目中的使用。</p>
@@ -523,91 +530,34 @@ Range in prices: $29,438.89</code></pre><ul>
 </li>
 </ul>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/project/" rel="tag"># project</a>
+              <a href="/tags/machine-learning/" rel="tag"># machine learning</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/01/hello-world/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yilin">
-      <meta itemprop="description" content="Thoughts.">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Parking Site">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/01/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-01 08:00:01" itemprop="dateCreated datePublished" datetime="2020-04-01T08:00:01Z">2020-04-01</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/01/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -660,6 +610,7 @@ Range in prices: $29,438.89</code></pre><ul>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-项目背景"><span class="nav-number">1.</span> <span class="nav-text">0. 项目背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-导入数据"><span class="nav-number">2.</span> <span class="nav-text">1. 导入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-分析数据"><span class="nav-number">3.</span> <span class="nav-text">2. 分析数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-基础统计运算"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 基础统计运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-特征观察"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 特征观察</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-数据分割与重排"><span class="nav-number">3.3.</span> <span class="nav-text">2.2 数据分割与重排</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-训练及测试"><span class="nav-number">3.4.</span> <span class="nav-text">2.3 训练及测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-模型衡量标准"><span class="nav-number">4.</span> <span class="nav-text">3. 模型衡量标准</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-定义衡量标准"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 定义衡量标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-拟合程度"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 拟合程度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-分析模型的表现"><span class="nav-number">5.</span> <span class="nav-text">4. 分析模型的表现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-学习曲线"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 学习曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-对学习曲线的观察"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 对学习曲线的观察</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-复杂度曲线"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 复杂度曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-偏差（bias）与方差（variance）之间的权衡取舍"><span class="nav-number">5.4.</span> <span class="nav-text">4.4 偏差（bias）与方差（variance）之间的权衡取舍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-最优模型的猜测"><span class="nav-number">5.5.</span> <span class="nav-text">4.5 最优模型的猜测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-选择最优参数"><span class="nav-number">6.</span> <span class="nav-text">5. 选择最优参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-网格搜索（Grid-Search）"><span class="nav-number">6.1.</span> <span class="nav-text">5.1 网格搜索（Grid Search）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-交叉验证"><span class="nav-number">6.2.</span> <span class="nav-text">5.2 交叉验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-决策树算法"><span class="nav-number">6.3.</span> <span class="nav-text">5.3 决策树算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-训练最优模型（-没有实现）"><span class="nav-number">6.4.</span> <span class="nav-text">5.4 训练最优模型（*没有实现）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-最优模型"><span class="nav-number">6.5.</span> <span class="nav-text">5.5 最优模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-做出预测"><span class="nav-number">7.</span> <span class="nav-text">6. 做出预测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-预测销售价格"><span class="nav-number">7.1.</span> <span class="nav-text">6.1 预测销售价格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-使用模型进行预测"><span class="nav-number">7.2.</span> <span class="nav-text">6.2 使用模型进行预测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-分析决定系数"><span class="nav-number">7.3.</span> <span class="nav-text">6.3 分析决定系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-模型的健壮性"><span class="nav-number">7.4.</span> <span class="nav-text">6.4 模型的健壮性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-结果分析"><span class="nav-number">7.5.</span> <span class="nav-text">6.5 结果分析</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
