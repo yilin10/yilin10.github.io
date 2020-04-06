@@ -692,6 +692,98 @@ Range in prices: $29,438.89</code></pre><ul>
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/18/anaconda/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/test.png">
+      <meta itemprop="name" content="Yilin">
+      <meta itemprop="description" content="Thoughts.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Parking Site">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/05/18/anaconda/" class="post-title-link" itemprop="url">About Anaconda</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-05-18 19:38:24" itemprop="dateCreated datePublished" datetime="2018-05-18T19:38:24Z">2018-05-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 19:43:48" itemprop="dateModified" datetime="2020-04-06T19:43:48Z">2020-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="tl-dr"><a href="#tl-dr" class="headerlink" title="tl;dr"></a>tl;dr</h2><p>仍在更新中……<br> Anaconda和 Jupyter Notebook 使用后的推荐度很高，在此整理一下笔记。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h3><p> Anaconda 是数据科学常用包的 Python 发行版，简单理解为管理工具。<br>其主要基于 conda 衍生而来，而这个 conda 就是包／环境管理器。<br>它可以帮助你更简单地按照不同的项目需求创建编程环境；分隔不同 Python 版本、不同包版本；安装、卸载和更新包。<br>除了 conda ，其中还包含 150 多个包及 dependency。</p>
+<h2 id="Conda"><a href="#Conda" class="headerlink" title="Conda"></a>Conda</h2><h3 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h3><p>包管理器用于在计算机上安装库和其他软件。平时使用 python 的时候，我们通常使用默认的 Python 默认包管理器 pip。conda 与之相似，但其中可管理的包为数据科学领域，也支持其他非 Python 包。</p>
+<h3 id="虚拟环境管理"><a href="#虚拟环境管理" class="headerlink" title="虚拟环境管理"></a>虚拟环境管理</h3><p>conda 同时还有虚拟环境管理的作用，类似于 virtualenv 和 pyenv 。</p>
+<h3 id="Jupyter-notebook"><a href="#Jupyter-notebook" class="headerlink" title="Jupyter notebook"></a>Jupyter notebook</h3><p>本质上是一种文档，其中可以组合保存说明文本、图像、代码（可执行）、公式和其他可视化内容。<br>自2011年开始流行，目前已经成为了数据分析的标准环境。</p>
+<h2 id="安装-Anaconda"><a href="#安装-Anaconda" class="headerlink" title="安装 Anaconda"></a>安装 Anaconda</h2><p>anaconda 中使用的 Python 不影响以及安装在本地的 Python 。它使用的是 anaconda 附带的 Python。<br>使用 <code>conda list</code> 命令查看所有安装的包版本。<br>使用  <code>conda upgrade --all</code> 命令更新所有，避免报错。<br>使用  <code>conda install package_name</code> 安装新包<br>    可以多个，例如 conda install numpy scipy pandas<br>    也可指定版本号 conda install numpy= 1.09</p>
+<p>安装时会自动安装 dependency<br>使用 <code>conda remove package_name</code>  卸载<br>使用 <code>conda upgrade package_name</code> 更新<br>不知道包的具体名字，则用 <code>conda search search_term</code> 搜索</p>
+<h2 id="环境管理"><a href="#环境管理" class="headerlink" title="环境管理"></a>环境管理</h2><h3 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h3><p><code>conda create -n env_name list of packages</code></p>
+<h3 id="进入环境"><a href="#进入环境" class="headerlink" title="进入环境"></a>进入环境</h3><p><code>source activate my_env</code> 进入环境</p>
+<h3 id="保存和加载环境"><a href="#保存和加载环境" class="headerlink" title="保存和加载环境"></a>保存和加载环境</h3><p><code>conda env export &gt; environment.yaml</code>  保存环境为YAML </p>
+<h3 id="列出环境"><a href="#列出环境" class="headerlink" title="列出环境"></a>列出环境</h3><p><code>conda env list</code></p>
+<h3 id="删除环境"><a href="#删除环境" class="headerlink" title="删除环境"></a>删除环境</h3><p><code>conda env remove -n env_name</code></p>
+<h2 id="安装使用-Jupyter-notebook"><a href="#安装使用-Jupyter-notebook" class="headerlink" title="安装使用 Jupyter notebook"></a>安装使用 Jupyter notebook</h2><p>notebook 能将数据处理后需要展示的一切内容集中在一起。</p>
+<h3 id="题外话：文学化编程概念"><a href="#题外话：文学化编程概念" class="headerlink" title="题外话：文学化编程概念"></a>题外话：文学化编程概念</h3><p>早在1984年，Donald Knuth 就提出了 Notebook 所应用的文字表达编程的概念。我们不只是可以为程序编写额外的文档内容，而是可以讲文字叙述和程序代码融合在一起。更好地向人解释，我们如何解决问题的逻辑和方法。</p>
+<p><code>让我们集中精力向人们解释我们希望计算机做什么，而不是指示计算机做什么。</code></p>
+<p>文学化编程概念已经发展成为了一门完整的编程语言，即 Eve。</p>
+<h3 id="在-anaconda-环境中安装-notebook"><a href="#在-anaconda-环境中安装-notebook" class="headerlink" title="在 anaconda 环境中安装 notebook"></a>在 anaconda 环境中安装 notebook</h3><p><code>conda install jupyter notebook</code> 即可</p>
+<h3 id="启动-notebook"><a href="#启动-notebook" class="headerlink" title="启动 notebook"></a>启动 notebook</h3><p><code>jupyter notebook</code></p>
+<p>服务器主页会在浏览器页面中打开。默认情况下，notebook 服务器的运行地址是 <a href="http://localhost:8888。">http://localhost:8888。</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
 
@@ -760,12 +852,16 @@ Range in prices: $29,438.89</code></pre><ul>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
