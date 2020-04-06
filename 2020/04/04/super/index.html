@@ -20,19 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="我还在想自己可以是不平凡的，还是想象力充沛和精力充沛，相信乐观和努力可以将无限遥远的梦想拖进现实。我可以走多远，我还有很多的憧憬和尝试。时间慢慢地走过，我会实现它们吗？ 2020年的4月，我开始重新启动这个站点。终点即起点，我想要记下这些普通但不平庸的日子。以文字的形式写下我的想法，最近在做的事，我的灵感，我在学习的内容，和我想启动的项目。我还是喜欢分配一些时间在思考和记录这些事情上的。 我不想忘">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About me">
-<meta property="og:url" content="http://yoursite.com/about/me.html">
+  <meta name="description" content="What is Machine Learning?Two definitions of Machine Learning are offered.   Arthur Samuel described it as: “the field of study that gives computers the ability to learn without being explicitly progra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intro to Supervised Learning Notes">
+<meta property="og:url" content="http://yoursite.com/2020/04/04/super/index.html">
 <meta property="og:site_name" content="Parking Site">
-<meta property="og:description" content="我还在想自己可以是不平凡的，还是想象力充沛和精力充沛，相信乐观和努力可以将无限遥远的梦想拖进现实。我可以走多远，我还有很多的憧憬和尝试。时间慢慢地走过，我会实现它们吗？ 2020年的4月，我开始重新启动这个站点。终点即起点，我想要记下这些普通但不平庸的日子。以文字的形式写下我的想法，最近在做的事，我的灵感，我在学习的内容，和我想启动的项目。我还是喜欢分配一些时间在思考和记录这些事情上的。 我不想忘">
+<meta property="og:description" content="What is Machine Learning?Two definitions of Machine Learning are offered.   Arthur Samuel described it as: “the field of study that gives computers the ability to learn without being explicitly progra">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-01T10:53:35.000Z">
-<meta property="article:modified_time" content="2020-04-03T12:13:20.351Z">
+<meta property="article:published_time" content="2020-04-04T12:13:42.000Z">
+<meta property="article:modified_time" content="2020-04-06T10:20:45.571Z">
 <meta property="article:author" content="Yilin">
+<meta property="article:tag" content="[object Object]">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/about/me">
+<link rel="canonical" href="http://yoursite.com/2020/04/04/super/">
 
 
 <script id="page-configurations">
@@ -40,13 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>About me | Parking Site
-</title>
+  <title>Intro to Supervised Learning Notes | Parking Site</title>
   
 
 
@@ -159,46 +159,120 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="en">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/04/super/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/test.png">
+      <meta itemprop="name" content="Yilin">
+      <meta itemprop="description" content="Thoughts.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Parking Site">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Intro to Supervised Learning Notes
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">About me
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
 
-<div class="post-meta">
+              <time title="Created: 2020-04-04 12:13:42" itemprop="dateCreated datePublished" datetime="2020-04-04T12:13:42Z">2020-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-06 10:20:45" itemprop="dateModified" datetime="2020-04-06T10:20:45Z">2020-04-06</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="What-is-Machine-Learning"><a href="#What-is-Machine-Learning" class="headerlink" title="What is Machine Learning?"></a>What is Machine Learning?</h1><p>Two definitions of Machine Learning are offered. </p>
+<ul>
+<li><p>Arthur Samuel described it as: “the field of study that gives computers the ability to learn without being explicitly programmed.” This is an older, informal definition.</p>
+</li>
+<li><p>Tom Mitchell provides a more modern definition: “A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.”</p>
+</li>
+<li><p>Example: playing checkers.<br>E = the experience of playing many games of checkers<br>T = the task of playing checkers.<br>P = <em>the probability</em> that the program will win the next game.</p>
+</li>
+<li><p>In general, any machine learning problem can be assigned to one of two broad classifications: Supervised learning and Unsupervised learning.</p>
+</li>
+</ul>
+<h2 id="What-is-supervised-learning"><a href="#What-is-supervised-learning" class="headerlink" title="What is supervised learning"></a>What is supervised learning</h2><ul>
+<li>most important one in learning paradigm</li>
+<li>an unknown function f that maps an input 𝑥 to an output  t: D = {&lt;x, t&gt;}</li>
+</ul>
+<h3 id="Goal-of-SL"><a href="#Goal-of-SL" class="headerlink" title="Goal of SL"></a>Goal of SL</h3><ul>
+<li>Goal: is to learn a good approximation of 𝑓</li>
+<li>Input variables 𝑥 are usually called features or attributes</li>
+<li>Output variables 𝑡 are also called targets or labels</li>
+</ul>
+<h3 id="Tasks"><a href="#Tasks" class="headerlink" title="Tasks"></a>Tasks</h3><p>Classification if 𝑡 is discrete<br>Regression if 𝑡 is continuous<br>Probability estimation if 𝑡 is a probability </p>
+<h3 id="Elements-in-Supervised-Learning"><a href="#Elements-in-Supervised-Learning" class="headerlink" title="Elements in Supervised Learning"></a>Elements in Supervised Learning</h3><ol>
+<li>Representation</li>
+<li>Evaluation</li>
+<li>Optimization</li>
+</ol>
+<hr>
+<ol>
+<li>Consist {linear models, instance-based, decision trees, set of rules, graphical models, neural networks, Gaussian Processes, Support vector machines, Model ensembles }</li>
+<li>{Accuracy, precision and recall, squared error, Likelihood, Posterior probability, Cost/Utility, Margin, Entropy, KL divergence}</li>
+<li>{ Combinatorial optimisation e.g.: Greedy search<br>Convex optimisation e.g.: Gradient descent<br>Constrained optimisation e.g.: Linear programming }</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/object-Object/" rel="tag"># [object Object]</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/03/pj0/" rel="prev" title="Boston housing Predictor">
+      <i class="fa fa-chevron-left"></i> Boston housing Predictor
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <p>我还在想自己可以是不平凡的，还是想象力充沛和精力充沛，相信乐观和努力可以将无限遥远的梦想拖进现实。我可以走多远，我还有很多的憧憬和尝试。时间慢慢地走过，我会实现它们吗？</p>
-<p>2020年的4月，我开始重新启动这个站点。终点即起点，我想要记下这些普通但不平庸的日子。以文字的形式写下我的想法，最近在做的事，我的灵感，我在学习的内容，和我想启动的项目。我还是喜欢分配一些时间在思考和记录这些事情上的。</p>
-<p>我不想忘记。</p>
-
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
@@ -249,6 +323,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">What is Machine Learning?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-supervised-learning"><span class="nav-number">1.1.</span> <span class="nav-text">What is supervised learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Goal-of-SL"><span class="nav-number">1.1.1.</span> <span class="nav-text">Goal of SL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tasks"><span class="nav-number">1.1.2.</span> <span class="nav-text">Tasks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elements-in-Supervised-Learning"><span class="nav-number">1.1.3.</span> <span class="nav-text">Elements in Supervised Learning</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
