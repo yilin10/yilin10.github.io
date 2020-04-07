@@ -20,17 +20,17 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="What is Machine Learning?Two definitions of Machine Learning are offered.   Arthur Samuel described it as: “the field of study that gives computers the ability to learn without being explicitly progra">
+  <meta name="description" content="1. What is Machine Learning?Two definitions of Machine Learning are offered.   Arthur Samuel described it as: “the field of study that gives computers the ability to learn without being explicitly pro">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Intro to Supervised Learning Notes">
 <meta property="og:url" content="http://yoursite.com/2020/04/04/super/index.html">
 <meta property="og:site_name" content="Parking Site">
-<meta property="og:description" content="What is Machine Learning?Two definitions of Machine Learning are offered.   Arthur Samuel described it as: “the field of study that gives computers the ability to learn without being explicitly progra">
+<meta property="og:description" content="1. What is Machine Learning?Two definitions of Machine Learning are offered.   Arthur Samuel described it as: “the field of study that gives computers the ability to learn without being explicitly pro">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-04T12:13:42.000Z">
-<meta property="article:modified_time" content="2020-04-07T12:05:04.694Z">
+<meta property="article:modified_time" content="2020-04-07T13:11:35.946Z">
 <meta property="article:author" content="Yilin">
-<meta property="article:tag" content="[object Object]">
+<meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/04/04/super/">
@@ -197,8 +197,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-07 12:05:04" itemprop="dateModified" datetime="2020-04-07T12:05:04Z">2020-04-07</time>
+                <time title="Modified: 2020-04-07 13:11:35" itemprop="dateModified" datetime="2020-04-07T13:11:35Z">2020-04-07</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+                </span>
+            </span>
 
           
 
@@ -211,7 +220,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="What-is-Machine-Learning"><a href="#What-is-Machine-Learning" class="headerlink" title="What is Machine Learning?"></a>What is Machine Learning?</h1><p>Two definitions of Machine Learning are offered. </p>
+        <h2 id="1-What-is-Machine-Learning"><a href="#1-What-is-Machine-Learning" class="headerlink" title="1. What is Machine Learning?"></a>1. What is Machine Learning?</h2><p>Two definitions of Machine Learning are offered. </p>
 <ul>
 <li><p>Arthur Samuel described it as: “the field of study that gives computers the ability to learn without being explicitly programmed.” This is an older, informal definition.</p>
 </li>
@@ -224,29 +233,25 @@
 <li><p>Except from supervised learning and unsupervised, there are also Reinforcement learning, recommender systems.</p>
 </li>
 </ul>
-<p>用机器模拟人脑</p>
-<ul>
+<h3 id="用机器模拟人脑"><a href="#用机器模拟人脑" class="headerlink" title="用机器模拟人脑"></a>用机器模拟人脑</h3><ul>
 <li>人可以描述问题，但不知道如何显式地解决问题</li>
 <li>让机器得到输入和输出，寻找解决途径</li>
 <li>计算机科学，可以应用在工业和基础科学上。{自动直升机，手写识别，自然语言，机器视觉，推荐算法}</li>
 <li>需要足够多的数据</li>
 </ul>
-<p>不同类型的学习算法</p>
-<ul>
+<h3 id="不同类型的学习算法"><a href="#不同类型的学习算法" class="headerlink" title="不同类型的学习算法"></a>不同类型的学习算法</h3><ul>
 <li>监督学习</li>
 <li>无监督学习</li>
 </ul>
-<p>选择的问题</p>
-<ul>
+<h3 id="选择的问题"><a href="#选择的问题" class="headerlink" title="选择的问题"></a>选择的问题</h3><ul>
 <li>需要理解算法本身，我们才能根据具体的实践问题，决定采用哪一种方法（最节省时间和精力）建立系统</li>
 <li>机器可以有多种方法达到目标，但是哪一种是最优的</li>
 </ul>
-<p>分类问题</p>
-<ul>
+<h3 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h3><ul>
 <li>Classification: Discrete valued</li>
 <li>Classification(discrete) CF Regression(Continus)</li>
 </ul>
-<h2 id="What-is-supervised-learning"><a href="#What-is-supervised-learning" class="headerlink" title="What is supervised learning"></a>What is supervised learning</h2><ul>
+<h2 id="2-What-is-supervised-learning"><a href="#2-What-is-supervised-learning" class="headerlink" title="2. What is supervised learning"></a>2. What is supervised learning</h2><ul>
 <li>most important one in learning paradigm</li>
 <li>an unknown function f that maps an input 𝑥 to an output  t: D = {&lt;x, t&gt;}</li>
 </ul>
@@ -276,7 +281,7 @@
 <li>Function h(hypothesis) {Input: size of a house -&gt; h -&gt; Output:estimated price}</li>
 <li></li>
 </ol>
-<h2 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h2><ul>
+<h2 id="3-Unsupervised-Learning"><a href="#3-Unsupervised-Learning" class="headerlink" title="3. Unsupervised Learning"></a>3. Unsupervised Learning</h2><ul>
 <li>Unsupervised learning allows us to approach problems with little or no idea what our results should look like. We can derive structure from data where we don’t necessarily know the effect of the variables.</li>
 <li>We can derive this structure by clustering the data based on relationships among the variables in the data.</li>
 <li>With unsupervised learning there is no feedback based on the prediction results.</li>
@@ -287,7 +292,7 @@
 <li><p>Non-clustering: The “Cocktail Party Algorithm”, allows you to find structure in a chaotic environment. (i.e. identifying individual voices and music from a mesh of sounds at a cocktail party).</p>
 </li>
 </ul>
-<h2 id="Model-and-Cost-Functions"><a href="#Model-and-Cost-Functions" class="headerlink" title="Model and Cost Functions"></a>Model and Cost Functions</h2><ol>
+<h2 id="4-Model-and-Cost-Functions"><a href="#4-Model-and-Cost-Functions" class="headerlink" title="4. Model and Cost Functions"></a>4. Model and Cost Functions</h2><ol>
 <li>Linear Regression:<ul>
 <li>supervised learning:gives the “right answer” to the</li>
 <li>Regression : predict real-valued output</li>
@@ -303,10 +308,19 @@
 <li>output variables/ target </li>
 </ul>
 </li>
-<li></li>
 </ol>
-<hr>
-<h2 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h2>
+<h2 id="5-Linear-Regression"><a href="#5-Linear-Regression" class="headerlink" title="5. Linear Regression"></a>5. Linear Regression</h2><h2 id="6-Linear-Classification"><a href="#6-Linear-Classification" class="headerlink" title="6. Linear Classification"></a>6. Linear Classification</h2><h2 id="7-Model-Evaluation-Selection-Ensembles"><a href="#7-Model-Evaluation-Selection-Ensembles" class="headerlink" title="7. Model Evaluation, Selection Ensembles"></a>7. Model Evaluation, Selection Ensembles</h2><h3 id="Bias-Variance"><a href="#Bias-Variance" class="headerlink" title="Bias Variance"></a>Bias Variance</h3><ol>
+<li>How to Evaluate a Model</li>
+</ol>
+<p>###</p>
+<h2 id="8-Reference"><a href="#8-Reference" class="headerlink" title="8. Reference"></a>8. Reference</h2><ol>
+<li>material of prof. Marcello Restelli</li>
+<li>Pattern Recognition and Machine Learning, Bishop [PRML]</li>
+<li>Elements of Statistical Learning, Hastie et al. [ESL]</li>
+<li>Introduction to Statistical Learning, James et al. [ISL]</li>
+<li>The Lack of A Priori Distinctions Between Learning Algorithms, Wolpert, 1996</li>
+</ol>
+
     </div>
 
     
@@ -315,7 +329,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/object-Object/" rel="tag"># [object Object]</a>
+              <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
           </div>
 
         
@@ -386,7 +400,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">What is Machine Learning?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-supervised-learning"><span class="nav-number">1.1.</span> <span class="nav-text">What is supervised learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Goal-of-SL"><span class="nav-number">1.1.1.</span> <span class="nav-text">Goal of SL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tasks"><span class="nav-number">1.1.2.</span> <span class="nav-text">Tasks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elements-in-Supervised-Learning"><span class="nav-number">1.1.3.</span> <span class="nav-text">Elements in Supervised Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process"><span class="nav-number">1.1.4.</span> <span class="nav-text">Process</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unsupervised-Learning"><span class="nav-number">1.2.</span> <span class="nav-text">Unsupervised Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">1.2.1.</span> <span class="nav-text">Example:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-and-Cost-Functions"><span class="nav-number">1.3.</span> <span class="nav-text">Model and Cost Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ref"><span class="nav-number">1.4.</span> <span class="nav-text">Ref</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-What-is-Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">1. What is Machine Learning?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用机器模拟人脑"><span class="nav-number">1.1.</span> <span class="nav-text">用机器模拟人脑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同类型的学习算法"><span class="nav-number">1.2.</span> <span class="nav-text">不同类型的学习算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择的问题"><span class="nav-number">1.3.</span> <span class="nav-text">选择的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分类问题"><span class="nav-number">1.4.</span> <span class="nav-text">分类问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-What-is-supervised-learning"><span class="nav-number">2.</span> <span class="nav-text">2. What is supervised learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Goal-of-SL"><span class="nav-number">2.1.</span> <span class="nav-text">Goal of SL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tasks"><span class="nav-number">2.2.</span> <span class="nav-text">Tasks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elements-in-Supervised-Learning"><span class="nav-number">2.3.</span> <span class="nav-text">Elements in Supervised Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process"><span class="nav-number">2.4.</span> <span class="nav-text">Process</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Unsupervised-Learning"><span class="nav-number">3.</span> <span class="nav-text">3. Unsupervised Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">3.1.</span> <span class="nav-text">Example:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Model-and-Cost-Functions"><span class="nav-number">4.</span> <span class="nav-text">4. Model and Cost Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Linear-Regression"><span class="nav-number">5.</span> <span class="nav-text">5. Linear Regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Linear-Classification"><span class="nav-number">6.</span> <span class="nav-text">6. Linear Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Model-Evaluation-Selection-Ensembles"><span class="nav-number">7.</span> <span class="nav-text">7. Model Evaluation, Selection Ensembles</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bias-Variance"><span class="nav-number">7.1.</span> <span class="nav-text">Bias Variance</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Reference"><span class="nav-number">8.</span> <span class="nav-text">8. Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -407,13 +421,15 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">categories</span>
+            <a href="/categories">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
