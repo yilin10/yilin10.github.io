@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="tl,dr在童年时代的剑桥英语课上，老师为了提高大家学习语言的兴趣带我们玩过类似的猜单词游戏。而再次接触到这个游戏并留下深刻印象（马失前蹄小人突然被吊死，悲惨接受 game over 结局），则要到中学阶段的文曲星上了。所谓的 classic 随着时代的变化，都成为了并不遥远，但也已经朦朦胧胧的美好记忆了。 游戏规则基本的游戏规则如下：Wiki&#x2F;Hangman 交互方式 游戏开始阶段，玩家需要被告">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hangman：经典单词游戏">
+<meta property="og:url" content="http://yoursite.com/2013/07/10/hangman/index.html">
+<meta property="og:site_name" content="Parking Site">
+<meta property="og:description" content="tl,dr在童年时代的剑桥英语课上，老师为了提高大家学习语言的兴趣带我们玩过类似的猜单词游戏。而再次接触到这个游戏并留下深刻印象（马失前蹄小人突然被吊死，悲惨接受 game over 结局），则要到中学阶段的文曲星上了。所谓的 classic 随着时代的变化，都成为了并不遥远，但也已经朦朦胧胧的美好记忆了。 游戏规则基本的游戏规则如下：Wiki&#x2F;Hangman 交互方式 游戏开始阶段，玩家需要被告">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2013-07-10T19:42:39.000Z">
+<meta property="article:modified_time" content="2020-04-11T12:26:00.501Z">
+<meta property="article:author" content="Yilin">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2013/07/10/hangman/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Hangman：经典单词游戏 | Parking Site</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Parking Site</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">A castle on the cloud.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/07/10/hangman/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avat.JPG">
+      <meta itemprop="name" content="Yilin">
+      <meta itemprop="description" content="Thoughts. Notes.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Parking Site">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hangman：经典单词游戏
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2013-07-10 19:42:39" itemprop="dateCreated datePublished" datetime="2013-07-10T19:42:39Z">2013-07-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-11 12:26:00" itemprop="dateModified" datetime="2020-04-11T12:26:00Z">2020-04-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="tl-dr"><a href="#tl-dr" class="headerlink" title="tl,dr"></a>tl,dr</h2><p>在童年时代的剑桥英语课上，老师为了提高大家学习语言的兴趣带我们玩过类似的猜单词游戏。而再次接触到这个游戏并留下深刻印象（马失前蹄小人突然被吊死，悲惨接受 game over 结局），则要到中学阶段的文曲星上了。<br>所谓的 classic 随着时代的变化，都成为了并不遥远，但也已经朦朦胧胧的美好记忆了。</p>
+<h2 id="游戏规则"><a href="#游戏规则" class="headerlink" title="游戏规则"></a>游戏规则</h2><p>基本的游戏规则如下：<a href="https://en.wikipedia.org/wiki/Hangman_(game" target="_blank" rel="noopener">Wiki/Hangman</a></p>
+<h3 id="交互方式"><a href="#交互方式" class="headerlink" title="交互方式"></a>交互方式</h3><ol>
+<li>游戏开始阶段，玩家需要被告知需要猜测的单词的长度</li>
+<li>玩家每轮提供一次猜测（字母）</li>
+<li>计算机给出对本轮猜测的判定结果</li>
+<li>显示本轮猜测之后当前单词猜测状态（已经猜对的部分显示，未能猜出的部分用符号之类替代留出）</li>
+</ol>
+<h3 id="额外规则"><a href="#额外规则" class="headerlink" title="额外规则"></a>额外规则</h3><ul>
+<li>每次游戏的玩家可以有 8 次游戏机会。</li>
+<li>每轮结束后，计算机给出提示，还有 * 次机会</li>
+<li>假定玩家每轮只输入一个字母（A-Z），如果猜测不在答案之中，则本轮失败。</li>
+<li>如果玩家多次猜测相同字母，不计入失败，而是显示信息：已经猜过了，请再试一次</li>
+<li>猜对单词中的全部字母，则游戏挑战成功。使用完全部机会，则游戏挑战失败</li>
+</ul>
+<h2 id="分解函数"><a href="#分解函数" class="headerlink" title="分解函数"></a>分解函数</h2><p>而复现这个刽子手的游戏，编程前需要如何规划？</p>
+<ol>
+<li>首先，需要构建两个大模块<ul>
+<li>helper functions， 完成辅助性函数的定义</li>
+<li>hangman：游戏主程序</li>
+</ul>
+</li>
+<li>划分功能<ul>
+<li>Is the Word Guessed，<br>  函数：用来判断这个字母是否已经猜过<br>  isWordGuessed 函数有两个参数：<pre><code>1. string 的 secretWord
+2. list 的 lettersGuessed</code></pre>  返回 boolean：<pre><code>如果secretWord已经猜测过，True
+else False</code></pre></li>
+<li>Printing Out the User’s Guess<br>  函数：用来显示玩家当前猜测轮后单词的“被猜测”状态<pre><code>getGuessedWord 也是两个参数，secretWord，lettersGuessed
+secretWord 是 string 需要转成 list 才可以更改
+用&apos; _ &apos; 代替没有猜到的字母
+返回替代修改后的单词</code></pre></li>
+<li>Printing Out all Available Letters<br>  函数：显示当前可用的单词<pre><code>调用了string.ascii_lowercase
+如果字母在猜测过的列表中，则从可用中去除</code></pre></li>
+</ul>
+</li>
+</ol>
+<h2 id="思考过程"><a href="#思考过程" class="headerlink" title="思考过程"></a>思考过程</h2><p>在真正开始搭建游戏的主程序之前，我们先完成小的函数模块。<br>在 hangman 主程序中拼接小的功能、循环控制游戏进程、提供输入输出的信息与玩家进行交互。<br>主要用到 list、string 之类的简单知识，并不难但是编程思想非常重要 XD<br><a href="https://docs.python.org/3/tutorial/datastructures.html" target="_blank" rel="noopener">参考</a></p>
+<h2 id="Code-Solution-如下"><a href="#Code-Solution-如下" class="headerlink" title="Code Solution 如下"></a>Code Solution 如下</h2><h3 id="isWordGuessed-secretWord-lettersGuessed"><a href="#isWordGuessed-secretWord-lettersGuessed" class="headerlink" title="isWordGuessed(secretWord, lettersGuessed)"></a>isWordGuessed(secretWord, lettersGuessed)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def isWordGuessed(secretWord, lettersGuessed):</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">    secretWord: string, the word the user is guessing</span><br><span class="line">    lettersGuessed: list, what letters have been guessed so far</span><br><span class="line">    returns: boolean, True if all the letters of secretWord are in lettersGuessed;</span><br><span class="line">      False otherwise</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">    gussed &#x3D; True</span><br><span class="line">    for elm in secretWord:</span><br><span class="line">        if elm not in lettersGuessed:</span><br><span class="line">            gussed &#x3D; False</span><br><span class="line">    return gussed</span><br></pre></td></tr></table></figure>
+
+<h3 id="getGuessedWord-secretWord-lettersGuessed"><a href="#getGuessedWord-secretWord-lettersGuessed" class="headerlink" title="getGuessedWord(secretWord, lettersGuessed)"></a>getGuessedWord(secretWord, lettersGuessed)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def getGuessedWord(secretWord,  ):</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">    secretWord: string, the word the user is guessing</span><br><span class="line">    lettersGuessed: list, what letters have been guessed so far</span><br><span class="line">    returns: string, comprised of letters and underscores that represents</span><br><span class="line">      what letters in secretWord have been guessed so far.</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">    ans &#x3D; list(secretWord)</span><br><span class="line">    for i in range(0,len(secretWord)):</span><br><span class="line">        if ans[i] not in lettersGuessed:</span><br><span class="line">            ans[i] &#x3D; &#39; _ &#39; </span><br><span class="line">    return &#39;&#39;.join(ans)</span><br></pre></td></tr></table></figure>
+
+<h3 id="getAvailableLetters-lettersGuessed"><a href="#getAvailableLetters-lettersGuessed" class="headerlink" title="getAvailableLetters(lettersGuessed)"></a>getAvailableLetters(lettersGuessed)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def getAvailableLetters(lettersGuessed):</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">    lettersGuessed: list, what letters have been guessed so far</span><br><span class="line">    returns: string, comprised of letters that represents what letters have not</span><br><span class="line">      yet been guessed.</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">    alpha &#x3D; list(string.ascii_lowercase)</span><br><span class="line">    ans &#x3D;[]</span><br><span class="line">    for i in range(0,len(alpha)):</span><br><span class="line">        if alpha[i] not in lettersGuessed:</span><br><span class="line">            ans.append(alpha[i])</span><br><span class="line">    return &#39;&#39;.join(ans)</span><br></pre></td></tr></table></figure>
+
+<h3 id="hangman"><a href="#hangman" class="headerlink" title="hangman"></a>hangman</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hangman</span><span class="params">(secretWord)</span>:</span></span><br><span class="line"></span><br><span class="line">    secretWord: string, the secret word to guess.</span><br><span class="line"></span><br><span class="line">    Starts up an interactive game of Hangman.</span><br><span class="line"></span><br><span class="line">    * At the start of the game, let the user know how many </span><br><span class="line">      letters the secretWord contains.</span><br><span class="line"></span><br><span class="line">    * Ask the user to supply one guess (i.e. letter) per round.</span><br><span class="line"></span><br><span class="line">    * The user should receive feedback immediately after each guess </span><br><span class="line">      about whether their guess appears <span class="keyword">in</span> the computers word.</span><br><span class="line"></span><br><span class="line">    * After each round, you should also display to the user the </span><br><span class="line">      partially guessed word so far, <span class="keyword">as</span> well <span class="keyword">as</span> letters that the </span><br><span class="line">      user has <span class="keyword">not</span> yet guessed.</span><br><span class="line"></span><br><span class="line">    Follows the other limitations detailed <span class="keyword">in</span> the problem write-up.</span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    num_word = len(secretWord)</span></span><br><span class="line"><span class="string">    print("Welcome to the game, Hangman!")</span></span><br><span class="line"><span class="string">    print("I am thinking of a word that is " + str(num_word) + " letters long.")</span></span><br><span class="line"><span class="string">    print("-----------")</span></span><br><span class="line"><span class="string">    letters_Guessed = []</span></span><br><span class="line"><span class="string">    left_guess = 8</span></span><br><span class="line"><span class="string">    while left_guess &gt; 0:</span></span><br><span class="line"><span class="string">        print("You have " + str(left_guess) + " guesses left.")</span></span><br><span class="line"><span class="string">        print("Available letters: " + str(getAvailableLetters(letters_Guessed)))</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        # get input guess from player:</span></span><br><span class="line"><span class="string">        # Please guess a letter: a</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        new_input_letter = input("Please guess a letter: ")</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        # Case one : if You have alreaday guessed</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        while new_input_letter in letters_Guessed:</span></span><br><span class="line"><span class="string">            print("Oops! You've already guessed that letter: " + str(getGuessedWord(secretWord, letters_Guessed)))</span></span><br><span class="line"><span class="string">            print("-----------")</span></span><br><span class="line"><span class="string">            print("You have " + str(left_guess) + " guesses left.")</span></span><br><span class="line"><span class="string">            print("Available letters: " + str(getAvailableLetters(letters_Guessed)))</span></span><br><span class="line"><span class="string">            new_input_letter = input("Please guess a letter: ")       </span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        letters_Guessed.append(new_input_letter)</span></span><br><span class="line"><span class="string">        # Case Two: success guess</span></span><br><span class="line"><span class="string">        if new_input_letter in secretWord:</span></span><br><span class="line"><span class="string">            print("Good guess: " + str(getGuessedWord(secretWord, letters_Guessed)))</span></span><br><span class="line"><span class="string">            print("-----------")</span></span><br><span class="line"><span class="string">        else :</span></span><br><span class="line"><span class="string">            print("Oops! That letter is not in my word: " +  str(getGuessedWord(secretWord, letters_Guessed)))</span></span><br><span class="line"><span class="string">            print("-----------")</span></span><br><span class="line"><span class="string">            left_guess -= 1</span></span><br><span class="line"><span class="string">            </span></span><br><span class="line"><span class="string">        # check the game win condition</span></span><br><span class="line"><span class="string">        if isWordGuessed(secretWord, letters_Guessed):</span></span><br><span class="line"><span class="string">            </span></span><br><span class="line"><span class="string">            print("Congratulations, you won!")</span></span><br><span class="line"><span class="string">            return None</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    print("Sorry, you ran out of guesses. The word was else.")</span></span><br><span class="line"><span class="string">    return None</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p>进行测试时，我们需要提供包括所有情况的测试案例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">secretWord &#x3D; chooseWord(wordlist).lower()</span><br><span class="line">hangman(secretWord)</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h2><p>分别使用</p>
+<p>1：成功猜测一个短单词的情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Welcome to the game, Hangman!</span><br><span class="line">I am thinking of a word that is 1 letters long.</span><br><span class="line">-----------</span><br><span class="line">You have 8 guesses left.</span><br><span class="line">Available letters: abcdefghijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: c</span><br><span class="line">Good guess: c</span><br><span class="line">-----------</span><br><span class="line">Congratulations, you won!</span><br><span class="line">None</span><br></pre></td></tr></table></figure>
+
+<p>2：单词中是重复字母的情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Welcome to the game, Hangman!</span><br><span class="line">I am thinking of a word that is 3 letters long.</span><br><span class="line">-----------</span><br><span class="line">You have 8 guesses left.</span><br><span class="line">Available letters: abcdefghijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: z</span><br><span class="line">Good guess: zzz</span><br><span class="line">-----------</span><br><span class="line">Congratulations, you won!</span><br><span class="line">None</span><br></pre></td></tr></table></figure>
+
+<p>3：猜测极短但失败用例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">Welcome to the game, Hangman!</span><br><span class="line">I am thinking of a word that is 1 letters long.</span><br><span class="line">-----------</span><br><span class="line">You have 8 guesses left.</span><br><span class="line">Available letters: abcdefghijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: a</span><br><span class="line">Oops! That letter is not in my word: _ </span><br><span class="line">-----------</span><br><span class="line">You have 7 guesses left.</span><br><span class="line">Available letters: bcdefghijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: b</span><br><span class="line">Oops! That letter is not in my word: _ </span><br><span class="line">-----------</span><br><span class="line">You have 6 guesses left.</span><br><span class="line">Available letters: cdefghijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: d</span><br><span class="line">Oops! That letter is not in my word: _ </span><br><span class="line">-----------</span><br><span class="line">You have 5 guesses left.</span><br><span class="line">Available letters: cefghijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: e</span><br><span class="line">Oops! That letter is not in my word: _ </span><br><span class="line">-----------</span><br><span class="line">You have 4 guesses left.</span><br><span class="line">Available letters: cfghijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: f</span><br><span class="line">Oops! That letter is not in my word: _ </span><br><span class="line">-----------</span><br><span class="line">You have 3 guesses left.</span><br><span class="line">Available letters: cghijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: g</span><br><span class="line">Oops! That letter is not in my word: _ </span><br><span class="line">-----------</span><br><span class="line">You have 2 guesses left.</span><br><span class="line">Available letters: chijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: h</span><br><span class="line">Oops! That letter is not in my word: _ </span><br><span class="line">-----------</span><br><span class="line">You have 1 guesses left.</span><br><span class="line">Available letters: cijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: i</span><br><span class="line">Oops! That letter is not in my word: _ </span><br><span class="line">-----------</span><br><span class="line">Sorry, you ran out of guesses. The word was else.</span><br><span class="line">None</span><br></pre></td></tr></table></figure>
+
+<p>4：游戏最终成功的用例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Welcome to the game, Hangman!</span><br><span class="line">I am thinking of a word that is 3 letters long.</span><br><span class="line">-----------</span><br><span class="line">You have 8 guesses left.</span><br><span class="line">Available letters: abcdefghijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: a</span><br><span class="line">Good guess: _ _ a</span><br><span class="line">-----------</span><br><span class="line">You have 8 guesses left.</span><br><span class="line">Available letters: bcdefghijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: e</span><br><span class="line">Good guess: _ ea</span><br><span class="line">-----------</span><br><span class="line">You have 8 guesses left.</span><br><span class="line">Available letters: bcdfghijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: a</span><br><span class="line">Oops! You&#39;ve already guessed that letter: _ ea</span><br><span class="line">-----------</span><br><span class="line">You have 8 guesses left.</span><br><span class="line">Available letters: bcdfghijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: e</span><br><span class="line">Oops! You&#39;ve already guessed that letter: _ ea</span><br><span class="line">-----------</span><br><span class="line">You have 8 guesses left.</span><br><span class="line">Available letters: bcdfghijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: s</span><br><span class="line">Good guess: sea</span><br><span class="line">-----------</span><br><span class="line">Congratulations, you won!</span><br><span class="line">None</span><br></pre></td></tr></table></figure>
+
+<p>5：不断失败的用例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Welcome to the game, Hangman!</span><br><span class="line">I am thinking of a word that is 1 letters long.</span><br><span class="line">-----------</span><br><span class="line">You have 8 guesses left.</span><br><span class="line">Available letters: abcdefghijklmnopqrstuvwxyz</span><br><span class="line">Please guess a letter: x</span><br><span class="line">Oops! That letter is not in my word: _ </span><br><span class="line">-----------</span><br><span class="line">You have 7 guesses left.</span><br><span class="line">Available letters: abcdefghijklmnopqrstuvwyz</span><br><span class="line">Please guess a letter: z</span><br><span class="line">Oops! That letter is not in my word: _ </span><br><span class="line">-----------</span><br><span class="line">You have 6 guesses left.</span><br><span class="line">Available letters: abcdefghijklmnopqrstuvwy</span><br><span class="line">Please guess a letter: x</span><br><span class="line">Oops! You&#39;ve already guessed that letter: _ </span><br><span class="line">-----------</span><br><span class="line">You have 6 guesses left.</span><br><span class="line">Available letters: abcdefghijklmnopqrstuvwy</span><br><span class="line">Please guess a letter: z</span><br><span class="line">Oops! You&#39;ve already guessed that letter: _ </span><br><span class="line">-----------</span><br><span class="line">You have 6 guesses left.</span><br><span class="line">Available letters: abcdefghijklmnopqrstuvwy</span><br><span class="line">Please guess a letter: y</span><br><span class="line">Good guess: y</span><br><span class="line">-----------</span><br><span class="line">Congratulations, you won!</span><br><span class="line">None</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2013/06/15/recover/" rel="prev" title="Recover：恢复记忆卡中的 JPEG 图片">
+      <i class="fa fa-chevron-left"></i> Recover：恢复记忆卡中的 JPEG 图片
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/05/18/anaconda/" rel="next" title="About Anaconda">
+      About Anaconda <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tl-dr"><span class="nav-number">1.</span> <span class="nav-text">tl,dr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#游戏规则"><span class="nav-number">2.</span> <span class="nav-text">游戏规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#交互方式"><span class="nav-number">2.1.</span> <span class="nav-text">交互方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#额外规则"><span class="nav-number">2.2.</span> <span class="nav-text">额外规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分解函数"><span class="nav-number">3.</span> <span class="nav-text">分解函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考过程"><span class="nav-number">4.</span> <span class="nav-text">思考过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Solution-如下"><span class="nav-number">5.</span> <span class="nav-text">Code Solution 如下</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#isWordGuessed-secretWord-lettersGuessed"><span class="nav-number">5.1.</span> <span class="nav-text">isWordGuessed(secretWord, lettersGuessed)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getGuessedWord-secretWord-lettersGuessed"><span class="nav-number">5.2.</span> <span class="nav-text">getGuessedWord(secretWord, lettersGuessed)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getAvailableLetters-lettersGuessed"><span class="nav-number">5.3.</span> <span class="nav-text">getAvailableLetters(lettersGuessed)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hangman"><span class="nav-number">5.4.</span> <span class="nav-text">hangman</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test"><span class="nav-number">6.</span> <span class="nav-text">Test</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试用例"><span class="nav-number">7.</span> <span class="nav-text">测试用例</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yilin"
+      src="/images/avat.JPG">
+  <p class="site-author-name" itemprop="name">Yilin</p>
+  <div class="site-description" itemprop="description">Thoughts. Notes.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yilin10" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yilin10" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yilin.zhu@mail.polimi.it" title="E-Mail → mailto:yilin.zhu@mail.polimi.it" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/ilin.chu0" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;ilin.chu0" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yilin</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
