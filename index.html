@@ -163,6 +163,121 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/05/super2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avat.JPG">
+      <meta itemprop="name" content="Yilin">
+      <meta itemprop="description" content="Thoughts. Notes.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Parking Site">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/05/super2/" class="post-title-link" itemprop="url">Intro to Supervised Learning Notes(2)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-05 10:01:33" itemprop="dateCreated datePublished" datetime="2020-04-05T10:01:33Z">2020-04-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-11 21:48:57" itemprop="dateModified" datetime="2020-04-11T21:48:57Z">2020-04-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><h3 id="1-High-dimensional-Feature"><a href="#1-High-dimensional-Feature" class="headerlink" title="1. High dimensional Feature"></a>1. High dimensional Feature</h3><ul>
+<li>what is the difference between low dimensional feature and high dimensional feature</li>
+<li>x = [x1,x2,…,xn] -&gt; y</li>
+<li>infinite dimensional features</li>
+<li>select features based on the data</li>
+</ul>
+<h3 id="2-Regression-vs-Classification"><a href="#2-Regression-vs-Classification" class="headerlink" title="2. Regression vs Classification"></a>2. Regression vs Classification</h3><ul>
+<li>regression: if y is continuous variable,<br>  e.g., price prediction</li>
+<li>classification: if the label is a discrete variable<br>  e.g., the task of predicting the types of residence</li>
+</ul>
+<h3 id="3-Supervised-learning-in-computer-science"><a href="#3-Supervised-learning-in-computer-science" class="headerlink" title="3. Supervised learning in computer science"></a>3. Supervised learning in computer science</h3><ul>
+<li>Image Classification: x = raw pixels of the picture, and y = label</li>
+<li>Natural language processing</li>
+</ul>
+<h3 id="4-unsupervised-learning"><a href="#4-unsupervised-learning" class="headerlink" title="4. unsupervised learning"></a>4. unsupervised learning</h3><ul>
+<li>only have data without labels</li>
+<li>goal is to find interesting structure in the data</li>
+</ul>
+<h3 id="5-Clustering-amp-Other"><a href="#5-Clustering-amp-Other" class="headerlink" title="5. Clustering &amp; Other"></a>5. Clustering &amp; Other</h3><ul>
+<li>k-mean clustering, mixture of Gaussians</li>
+<li>clustering genes</li>
+<li>principal component analysis (tools used in<br>LSA)</li>
+<li>word emeddings(Represent words by vectors),eg Word2vec</li>
+<li>clustering words with similar meanings</li>
+</ul>
+<h3 id="6-Reinforcement-Learning"><a href="#6-Reinforcement-Learning" class="headerlink" title="6. Reinforcement Learning"></a>6. Reinforcement Learning</h3><ul>
+<li>learning to walk to the right</li>
+<li>the algorithms can collect data interactively</li>
+<li>method: try the strategy and collect feedbacks(Data Collections &amp; Training),to improve the strategy based on the feedbacks</li>
+</ul>
+<h2 id="SL-Setup"><a href="#SL-Setup" class="headerlink" title="SL:Setup"></a>SL:Setup</h2><ul>
+<li>Linear Regression</li>
+<li>x -&gt; y</li>
+<li>gradient descent</li>
+</ul>
+<h2 id="Linear-Algebra"><a href="#Linear-Algebra" class="headerlink" title="Linear Algebra"></a>Linear Algebra</h2><h2 id="Probability"><a href="#Probability" class="headerlink" title="Probability"></a>Probability</h2><h2 id="Gaussian-Discriminant-Analysis"><a href="#Gaussian-Discriminant-Analysis" class="headerlink" title="Gaussian Discriminant Analysis"></a>Gaussian Discriminant Analysis</h2><h2 id="Support-Vector-Machines-Kernels"><a href="#Support-Vector-Machines-Kernels" class="headerlink" title="Support Vector Machines. Kernels."></a>Support Vector Machines. Kernels.</h2><h2 id="Evaluation-Metrics"><a href="#Evaluation-Metrics" class="headerlink" title="Evaluation Metrics"></a>Evaluation Metrics</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a href="http://cs229.stanford.edu/notes2020spring/lecture1_slide.pdf" target="_blank" rel="noopener">http://cs229.stanford.edu/notes2020spring/lecture1_slide.pdf</a></li>
+<li><a href="http://cs229.stanford.edu/notes2020spring/cs229-notes1.pdf" target="_blank" rel="noopener">http://cs229.stanford.edu/notes2020spring/cs229-notes1.pdf</a></li>
+<li>CS224N/CS231N</li>
+<li>Identifying Regulatory Mechanisms using Individual Variation Reveals Key Role for Chromatin Modification.</li>
+<li>Luo-Xu-Li-Tian-Darrell-M.’18</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/04/super/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1528,134 +1643,6 @@ buffer[2] == 0xff &amp;&amp;
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/05/24/cmusic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avat.JPG">
-      <meta itemprop="name" content="Yilin">
-      <meta itemprop="description" content="Thoughts. Notes.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Parking Site">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2013/05/24/cmusic/" class="post-title-link" itemprop="url">Synthesize：模拟读谱进行音乐合成</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2013-05-24 19:36:22" itemprop="dateCreated datePublished" datetime="2013-05-24T19:36:22Z">2013-05-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-11 12:22:22" itemprop="dateModified" datetime="2020-04-11T12:22:22Z">2020-04-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="tl-dr"><a href="#tl-dr" class="headerlink" title="tl;dr"></a>tl;dr</h2><ol>
-<li><p>阅读乐谱</p>
-</li>
-<li><p>阅读源代码</p>
-</li>
-<li><p>将乐谱转换成频率</p>
-</li>
-<li><p>模拟合成一段音乐</p>
-</li>
-</ol>
-<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>一支乐曲是一系列音符构成的，在乐谱上每个音符是一个具备时间长度、音高的标志。在西方音乐记谱中，每一个音符使用字母A-G表示。这些音在钢琴上位于白键上，因此称为自然音。</p>
-<p>A-（la） B-（si） C-（do） D-（re）E-（mi）F-（fa）G-（so）</p>
-<p>升降符号（#／b）用于表示与白键的接近程度。<br>键盘上的相邻音之间为半音的间隔（semitone）。</p>
-<p><img src="/tempimg/semitone.png" alt="semitone"></p>
-<p>钢琴共有88个键，其中52个为白键，仅用七个字母表示并不充分。八度（octaves）一组，即连续的七个音组成的音阶可以和音名一起表示键盘上的某个音。</p>
-<p><img src="/tempimg/octaves.png" alt="octaves"></p>
-<p>按动琴键，琴槌会敲击琴弦，琴弦振动产生波，波抵达人耳，就能听见乐音。<br>波动的频率越大，音高越高。</p>
-<p>source：(奇妙的音乐数学)[<a href="https://plus.maths.org/content/magical-mathematics-music]" target="_blank" rel="noopener">https://plus.maths.org/content/magical-mathematics-music]</a></p>
-<h3 id="A4"><a href="#A4" class="headerlink" title="A4"></a>A4</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">C4 &#x3D; midle C</span><br><span class="line">A3 &#x3D; 220 Hz</span><br><span class="line">A4 &#x3D; 440 Hz &#x3D; A440</span><br><span class="line">A5 &#x3D; 440 * 2 Hz</span><br><span class="line">……</span><br><span class="line">f &#x3D; (2^n&#x2F;12) × 440</span><br></pre></td></tr></table></figure>
-
-<h3 id="Visual-Notation"><a href="#Visual-Notation" class="headerlink" title="Visual Notation"></a>Visual Notation</h3><p>一般的记谱并不使用频率或符号，而是用视觉化方法表示——五线谱。位置代表音高，时值是音持续的时间长度。</p>
-<h2 id="Analyze-music-zip"><a href="#Analyze-music-zip" class="headerlink" title="Analyze music.zip"></a>Analyze music.zip</h2><ol>
-<li><p><code>songs／</code> 目录下均为文本文件，存储的是不同歌曲的谱面。空行代表 1/8 休止符</p>
-</li>
-<li><p><code>notes.c</code>输出note：频率，（如A#4:440），并在wav中输出对应音高的音符。<br>同时对错误信息给出输出提示。<br>使用到的函数<code>song_open</code>, <code>frequency</code>, <code>note_write</code>, <code>song_close</code>在其他文件中定义。</p>
-</li>
-<li><p><code>synthesize.c</code>从用户处获取一系列音符，写入文件。<br>get_string 获取一系列音符直至 EOF ，分辨作为休止符的空行。<br>使用 strtok() 匹配str note 和str duration （分数）。<br>使用 note_write 写入文件。</p>
-</li>
-<li><p><code>wav.h</code> 是 notes.c 和 synthesize.c 中都会使用到的头文件。<br>定义了结构体 note 和 song 。<br>定义了 note_write, rest_write, song_close, 以及 song_open 函数。</p>
-</li>
-<li><p><code>wav.c</code></p>
-</li>
-<li><p><code>Makefiles</code>是 make命令编译时配置文件，编译 notes 和 synthesize 涉及多个文件。</p>
-</li>
-<li><p><code>helpers.h</code> 定义<code>duration</code>,<code>frequency</code> 和 <code>is_rest</code>函数。</p>
-</li>
-<li><p><code>helpters.c</code></p>
-</li>
-</ol>
-<h2 id="Specification"><a href="#Specification" class="headerlink" title="Specification"></a>Specification</h2><ol>
-<li>经过读谱，在<code>bday.txt</code>中写入机器可读取的内容</li>
-<li>在 cs50.h 中找到 get_string 上的注释，发现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * Prompts user for a line of text from standard input and returns</span><br><span class="line"> * it as a string (char *), sans trailing line ending. Supports</span><br><span class="line"> * CR (\r), LF (\n), and CRLF (\r\n) as line endings. If user</span><br><span class="line"> * inputs only a line ending, returns &quot;&quot;, not NULL. Returns NULL</span><br><span class="line"> * upon error or no input whatsoever (i.e., just EOF). Stores string</span><br><span class="line"> * on heap, but library&#39;s destructor frees memory on program&#39;s exit.</span><br><span class="line"> *&#x2F;</span><br></pre></td></tr></table></figure>
-也就是说 get_string 方法读取空行时，得到的是“”而非NULL。而 EOF 时得到的是 NULL。</li>
-</ol>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ol>
-<li>补全 duration 函数，得到谱面音符的相对时值（1/8）</li>
-<li>频率计算<br>按照获取的string note（如A#4）<br>得到 octave = 4<br>name（与标准音的半音差） = 0<br>half = +1<br>得到<br><code>output = 440 * ( 2 ^ ( ( name + half ) / 12 ) ) * (2 ^ ( octave - 4 ) );</code></li>
-<li>进行小的单元测试，按照功能进行调试，然后进行下一步。<br>特别是在调整模拟频率上，分别按照音高、半音、音阶进行调整。</li>
-<li>最后，注意精度(round)和类型转换！</li>
-</ol>
-<h2 id="Code-Solution"><a href="#Code-Solution" class="headerlink" title="Code Solution"></a>Code Solution</h2><figure class="highlight c"><figcaption><span>helpers.c []</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Converts a fraction formatted as X/Y to eighths</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">duration</span><span class="params">(<span class="built_in">string</span> fraction)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> X = strtok(fraction, <span class="string">"/"</span>);</span><br><span class="line">    <span class="keyword">int</span> x = atoi(X);</span><br><span class="line">    <span class="built_in">string</span> Y = strtok(<span class="literal">NULL</span>, <span class="string">"/"</span>);</span><br><span class="line">    <span class="keyword">int</span> y = atoi(Y);</span><br><span class="line">    <span class="keyword">int</span> output = x * <span class="built_in">pow</span>(<span class="number">2</span>, <span class="number">3</span> - log2(y)) ;</span><br><span class="line">    <span class="keyword">return</span> output;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Calculates frequency (in Hz) of a note</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">frequency</span><span class="params">(<span class="built_in">string</span> note)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// set octave to store how to */ 2</span></span><br><span class="line">    <span class="comment">// set half to store whether or not should * 2 ^ 1/12</span></span><br><span class="line">    <span class="comment">// set hame to store how much it relate to A</span></span><br><span class="line">    <span class="keyword">int</span> octave = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">int</span> half = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> name = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// if the note is semi like A#4</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">strlen</span>(note) == <span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//get octave on A#4,minus char '4'</span></span><br><span class="line">        octave = note[<span class="number">2</span>] - <span class="string">'4'</span>;</span><br><span class="line">        <span class="comment">// set half = 1 if #</span></span><br><span class="line">        <span class="keyword">if</span> (note[<span class="number">1</span>] == <span class="string">'#'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            half = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// set half = -1 if b</span></span><br><span class="line">        <span class="keyword">if</span> (note[<span class="number">1</span>] == <span class="string">'b'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            half = <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// if no semi, the length of note is 2, like A4</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">strlen</span>(note) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//get octave</span></span><br><span class="line">        octave = note[<span class="number">1</span>] - <span class="string">'4'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// get name by char note[0]</span></span><br><span class="line">    <span class="keyword">switch</span> (note[<span class="number">0</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'C'</span>:</span><br><span class="line">            name = <span class="number">-9</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'D'</span>:</span><br><span class="line">            name = <span class="number">-7</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'E'</span>:</span><br><span class="line">            name = <span class="number">-5</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'F'</span>:</span><br><span class="line">            name = <span class="number">-4</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'G'</span>:</span><br><span class="line">            name = <span class="number">-2</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'A'</span>:</span><br><span class="line">            name = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'B'</span>:</span><br><span class="line">            name = <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//calculate the frequency and return the int output</span></span><br><span class="line">    <span class="keyword">int</span> freq = <span class="number">0</span>;</span><br><span class="line">    freq = round(<span class="number">440</span> * <span class="built_in">pow</span>(<span class="number">2.00</span>, (name + half) / <span class="number">12</span> + octave));</span><br><span class="line">    <span class="keyword">return</span>  freq;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Determines whether a string represents a rest</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_rest</span><span class="params">(<span class="built_in">string</span> s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// if it is "" return false</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">strncmp</span>(s, <span class="string">""</span>, <span class="number">1</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其他 </p>
-<figure class="highlight c"><figcaption><span>synthesize.c []</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="built_in">string</span> argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Check command line arguments</span></span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Usage: synthesize FILE\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">string</span> filename = argv[<span class="number">1</span>];</span><br><span class="line">    <span class="comment">// Open file for writing</span></span><br><span class="line">    song s = song_open(filename);</span><br><span class="line">    <span class="comment">// Expect notes from user until EOF</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// Expect note</span></span><br><span class="line">        <span class="built_in">string</span> <span class="built_in">line</span> = get_string(<span class="string">""</span>);</span><br><span class="line">        <span class="comment">// Check for EOF</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">line</span> == <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Check if line is rest</span></span><br><span class="line">        <span class="keyword">if</span> (is_rest(<span class="built_in">line</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            rest_write(s, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Parse line into note and duration</span></span><br><span class="line">            <span class="built_in">string</span> note = strtok(<span class="built_in">line</span>, <span class="string">"@"</span>);</span><br><span class="line">            <span class="built_in">string</span> fraction = strtok(<span class="literal">NULL</span>, <span class="string">"@"</span>);</span><br><span class="line">            <span class="comment">// Write note to song</span></span><br><span class="line">            note_write(s, frequency(note), duration(fraction));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Close file</span></span><br><span class="line">    song_close(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>另一个</p>
-<figure class="highlight c"><figcaption><span>note.c []</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Notes in an octave</span></span><br><span class="line"><span class="keyword">const</span> <span class="built_in">string</span> NOTES[] = &#123;<span class="string">"C"</span>, <span class="string">"C#"</span>, <span class="string">"D"</span>, <span class="string">"D#"</span>, <span class="string">"E"</span>, <span class="string">"F"</span>,</span><br><span class="line">                        <span class="string">"F#"</span>, <span class="string">"G"</span>, <span class="string">"G#"</span>, <span class="string">"A"</span>, <span class="string">"A#"</span>, <span class="string">"B"</span></span><br><span class="line">                       &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Default octave</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OCTAVE 4</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="built_in">string</span> argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Override default octave if specified at command line</span></span><br><span class="line">    <span class="keyword">int</span> octave = OCTAVE;</span><br><span class="line">    <span class="keyword">if</span> (argc == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        octave = atoi(argv[<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">if</span> (octave &lt; <span class="number">0</span> || octave &gt; <span class="number">8</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//unvalid input actave</span></span><br><span class="line">            <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Invalid octave\n"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (argc &gt; <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//too much arguments</span></span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Usage: notes [OCTAVE]\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Open file for writing</span></span><br><span class="line">    song s = song_open(<span class="string">"notes.wav"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Add each semitone</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, n = <span class="keyword">sizeof</span>(NOTES) / <span class="keyword">sizeof</span>(<span class="built_in">string</span>); i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// Append octave to note</span></span><br><span class="line">        <span class="keyword">char</span> note[<span class="number">4</span>];</span><br><span class="line">        <span class="built_in">sprintf</span>(note, <span class="string">"%s%i"</span>, NOTES[i], octave);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Calculate frequency of note</span></span><br><span class="line">        <span class="keyword">int</span> f = frequency(note);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Print note to screen</span></span><br><span class="line">        <span class="comment">//as A#4:440</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%3s: %i\n"</span>, note, f);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Write (eighth) note to file</span></span><br><span class="line">        note_write(s, f, <span class="number">1</span>);<span class="comment">// note_write()</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Close file</span></span><br><span class="line">    song_close(s);<span class="comment">// song_close()</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1727,7 +1714,7 @@ buffer[2] == 0xff &amp;&amp;
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
