@@ -163,6 +163,193 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/06/15/recover/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avat.JPG">
+      <meta itemprop="name" content="Yilin">
+      <meta itemprop="description" content="Thoughts. Notes.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Parking Site">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2013/06/15/recover/" class="post-title-link" itemprop="url">Recover：恢复记忆卡中的 JPEG 图片</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2013-06-15 20:20:04" itemprop="dateCreated datePublished" datetime="2013-06-15T20:20:04Z">2013-06-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-11 12:27:37" itemprop="dateModified" datetime="2020-04-11T12:27:37Z">2020-04-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="tl-dr"><a href="#tl-dr" class="headerlink" title="tl;dr"></a>tl;dr</h3><p>从 card.raw 中识别 JPEG 的数据，将其恢复出来。</p>
+<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><ol>
+<li>打开存储卡card.raw 读取其中数据（使用fopen()</li>
+<li>识别 JPEG 的header<br> 注意：JPEG 也只是一系列bytes，只是每一个 JPEG 都有相同的header<br> 前三个byte：是 0xff 0xd8 0xff<br> 下一个：0xe0—到–0xef<br> 读取时每一个 block 是 512 bytes</li>
+<li>打开一个新的 JPEG 文件，将文件名保存为  ???.jpeg（1～n）</li>
+<li>写入这一个block 的 512 byte 直到发现新的文件头出现</li>
+<li>检查是否已经读取到文件的末尾</li>
+</ol>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ol>
+<li>读取文件的fread()<br> fread(data,size,number,inptr)<br> data: pointer to such truct that will contain the bytes you are reading<br> size: size of each element to read<br> sizeof<br> number: number of elements to read<br> inptr: FILE * to read from</li>
+<li>识别 JPEG：<br> if (buffer[0] == 0xff &amp;&amp;<pre><code>buffer[1] == 0xd8 &amp;&amp;
+buffer[2] == 0xff &amp;&amp;
+(buffer[3] &amp; 0xf0) == 0xe0)</code></pre></li>
+<li>按照需要存储新图片，使用函数 sprintf(filename,”%03i.jpg”,2)<br> filename: char array to store the result tring<br> 002.jpg<br> FILE *image = fopen(filename,”w”)</li>
+<li>使用 fwrite 函数写入内容<br> fwrite(data,size,number,outptr)<br> fwrite(buffer, sizeof(buffer), 1, image)</li>
+<li>使用的数据结构<br> 定义了 typedef uint8_t BYTE，使用了 BYTE buffer[512]</li>
+</ol>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ol>
+<li><a href="https://docs.cs50.net/2018/x/psets/4/recover/recover.html" target="_blank" rel="noopener">https://docs.cs50.net/2018/x/psets/4/recover/recover.html</a></li>
+</ol>
+<h3 id="Code-Solution"><a href="#Code-Solution" class="headerlink" title="Code Solution"></a>Code Solution</h3><figure class="highlight c"><figcaption><span>[]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cs50.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdint.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">uint8_t</span> BYTE;</span><br><span class="line"></span><br><span class="line"><span class="comment">// get the name of a forensic image as command-line argument</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// ensure proper usage</span></span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Usage: recover infile outfile\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// remember input filenames from the only argument</span></span><br><span class="line">    <span class="keyword">char</span> *infile = argv[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// open input file</span></span><br><span class="line">    FILE *inptr = fopen(infile, <span class="string">"r"</span>);</span><br><span class="line">    <span class="keyword">if</span> (inptr == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not open %s.\n"</span>, infile);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//read file and check the first 4 signature</span></span><br><span class="line">    BYTE <span class="built_in">buffer</span>[<span class="number">512</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> filename[<span class="number">8</span>];</span><br><span class="line">    FILE *<span class="built_in">image</span> = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">int</span> newnameJPEG = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// check whether it is a JPEG start</span></span><br><span class="line">    <span class="keyword">bool</span> isJPEG = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">while</span> (fread(<span class="built_in">buffer</span>, <span class="keyword">sizeof</span>(<span class="built_in">buffer</span>), <span class="number">1</span>, inptr) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//check whether the first 4 buffer indicates a JPEG</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">buffer</span>[<span class="number">0</span>] == <span class="number">0xff</span> &amp;&amp;</span><br><span class="line">            <span class="built_in">buffer</span>[<span class="number">1</span>] == <span class="number">0xd8</span> &amp;&amp;</span><br><span class="line">            <span class="built_in">buffer</span>[<span class="number">2</span>] == <span class="number">0xff</span> &amp;&amp;</span><br><span class="line">            (<span class="built_in">buffer</span>[<span class="number">3</span>] &amp; <span class="number">0xf0</span>) == <span class="number">0xe0</span>)</span><br><span class="line"></span><br><span class="line">        &#123;</span><br><span class="line">            isJPEG = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//making a new JPEG</span></span><br><span class="line">            <span class="built_in">sprintf</span>(filename, <span class="string">"%03i.jpg"</span>, newnameJPEG);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//create file(JPEG) to write</span></span><br><span class="line">            <span class="built_in">image</span> = fopen(filename, <span class="string">"w"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//prepare next</span></span><br><span class="line">            newnameJPEG ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (isJPEG == <span class="literal">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            fwrite(<span class="built_in">buffer</span>, <span class="keyword">sizeof</span>(<span class="built_in">buffer</span>), <span class="number">1</span>, <span class="built_in">image</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// close infile</span></span><br><span class="line">    fclose(inptr);</span><br><span class="line">    fclose(<span class="built_in">image</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// success</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/06/01/codehidden/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avat.JPG">
+      <meta itemprop="name" content="Yilin">
+      <meta itemprop="description" content="Thoughts. Notes.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Parking Site">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2013/06/01/codehidden/" class="post-title-link" itemprop="url">Whodunit：破译侦探游戏中的隐写信息</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2013-06-01 20:59:08" itemprop="dateCreated datePublished" datetime="2013-06-01T20:59:08Z">2013-06-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-11 12:23:08" itemprop="dateModified" datetime="2020-04-11T12:23:08Z">2020-04-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="tl-dr"><a href="#tl-dr" class="headerlink" title="tl;dr"></a>tl;dr</h2><p>这个程序可以将位图中的隐藏信息破译出来。<br>不过，目前解码信息的规则很简单，因为噪点都是红色的，只需要将0000ff全部转变成ffffff，生成新的图片，即可看到被覆盖的隐写信息。</p>
+<h2 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h2><p>一些儿童向的冒险小说里会夹杂这种类型的侦探卡片，覆盖在空无一物的图片上即可显现真实的信息。计算机程序所能做到的也是如此。</p>
+<h3 id="关于色彩"><a href="#关于色彩" class="headerlink" title="关于色彩"></a>关于色彩</h3><p>黑白色彩 = 1 bit = 1/0 分别表示白或黑 2 色</p>
+<p>GIF ：支持 8 bit color<br>BMP／JPEG／PNG ：都支持 24-bit color<br>BMP 实际上可以支持 1-, 4-, 8-, 16-, 24-, 32-bit color</p>
+<p>24 bit color 中的 RGB color：<br>8    red        R<br>8    green    G<br>8    blue    B</p>
+<h3 id="关于-BMP"><a href="#关于-BMP" class="headerlink" title="关于 BMP"></a>关于 BMP</h3><p><a href="https://msdn.microsoft.com/en-us/library/dd183377.aspx" target="_blank" rel="noopener">bitmap - by MS</a></p>
+<p>BMP文件在文件开始会包含一些 metadata：<br>14 byte 大小的结构体 BITMAPFILEHEADER<br>40 byte 大小的结构体 BITMAPINFOHEADER<br>一共 54 byte</p>
+<p><img src="/tempimg/BITHEADER.jpg" alt="BITMAP HEADER"><br>（在1-, 4-,16-bit BMP中，还有代表“色彩饱和度”的 RGBQUAD ）</p>
+<p>其中 BMP 对色彩 triple 的存储方法都是完全逆向 BGR，有些甚至是每一个像素点逆向存储的。</p>
+<p>PS:BMP 4.0 的 magic number 是0x4d42</p>
+<h3 id="关于-padding"><a href="#关于-padding" class="headerlink" title="关于 padding"></a>关于 padding</h3><p>微软开发者制定了规则，每一行 scanline 需要是 32-bit DWORD的倍数<br>所以 scanline 不能被 4 整除的话就需要增加 padding。</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Data_structure_alignment" target="_blank" rel="noopener"> Data Structure Padding</a></li>
+<li><a href="http://www.drdobbs.com/architecture-and-design/the-bmp-file-format-part-1/184409517" target="_blank" rel="noopener">BMP format</a></li>
+</ul>
+<h2 id="其他注意点"><a href="#其他注意点" class="headerlink" title="其他注意点"></a>其他注意点</h2><ol>
+<li>异常情况判断，错误抛出</li>
+<li>读取原始位图内容、padding调整、按照解密规则替换像素颜色、输出结果</li>
+</ol>
+<h2 id="Code-Solution"><a href="#Code-Solution" class="headerlink" title="Code Solution"></a>Code Solution</h2><figure class="highlight c"><figcaption><span>[whodunit.c] []</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"bmp.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// ensure:program should accept exactly two command-line arguments</span></span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// remind the user of correct usage,</span></span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Usage: change infile outfile\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// remember filenames</span></span><br><span class="line">    <span class="keyword">char</span> *infile = argv[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">char</span> *outfile = argv[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// open input file</span></span><br><span class="line">    FILE *inptr = fopen(infile, <span class="string">"r"</span>);</span><br><span class="line">    <span class="comment">// if input file cannot be opened for reading</span></span><br><span class="line">    <span class="comment">// return 2 and reming</span></span><br><span class="line">    <span class="keyword">if</span> (inptr == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not open %s.\n"</span>, infile);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// open output file</span></span><br><span class="line">    FILE *outptr = fopen(outfile, <span class="string">"w"</span>);</span><br><span class="line">    <span class="comment">// if the output file cannot be opened for writing</span></span><br><span class="line">    <span class="comment">// return 3 and remind</span></span><br><span class="line">    <span class="keyword">if</span> (outptr == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        fclose(inptr);</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not create %s.\n"</span>, outfile);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// read infile's BITMAPFILEHEADER</span></span><br><span class="line">    BITMAPFILEHEADER bf;</span><br><span class="line">    fread(&amp;bf, <span class="keyword">sizeof</span>(BITMAPFILEHEADER), <span class="number">1</span>, inptr);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// read infile's BITMAPINFOHEADER</span></span><br><span class="line">    BITMAPINFOHEADER bi;</span><br><span class="line">    fread(&amp;bi, <span class="keyword">sizeof</span>(BITMAPINFOHEADER), <span class="number">1</span>, inptr);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// ensure infile is (likely) a 24-bit uncompressed BMP 4.0</span></span><br><span class="line">    <span class="keyword">if</span> (bf.bfType != <span class="number">0x4d42</span> || bf.bfOffBits != <span class="number">54</span> || bi.biSize != <span class="number">40</span> ||</span><br><span class="line">        bi.biBitCount != <span class="number">24</span> || bi.biCompression != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        fclose(outptr);</span><br><span class="line">        fclose(inptr);</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Unsupported file format.\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ensure infile is  a 24-bit uncompressed BMP 4.0</span></span><br><span class="line">    <span class="keyword">if</span> (bf.bfType != <span class="number">0x4d42</span> || bf.bfOffBits != <span class="number">54</span> || bi.biSize != <span class="number">40</span> ||</span><br><span class="line">        bi.biBitCount != <span class="number">24</span> || bi.biCompression != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        fclose(outptr);</span><br><span class="line">        fclose(inptr);</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Unsupported file format.\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// write outfile's BITMAPFILEHEADER</span></span><br><span class="line">    fwrite(&amp;bf, <span class="keyword">sizeof</span>(BITMAPFILEHEADER), <span class="number">1</span>, outptr);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// write outfile's BITMAPINFOHEADER</span></span><br><span class="line">    fwrite(&amp;bi, <span class="keyword">sizeof</span>(BITMAPINFOHEADER), <span class="number">1</span>, outptr);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// determine padding for scanlines</span></span><br><span class="line">    <span class="keyword">int</span> padding = (<span class="number">4</span> - (bi.biWidth * <span class="keyword">sizeof</span>(RGBTRIPLE)) % <span class="number">4</span>) % <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// iterate over infile's scanlines</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, biHeight = <span class="built_in">abs</span>(bi.biHeight); i &lt; biHeight; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// iterate over pixels in scanline</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; bi.biWidth; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// temporary storage</span></span><br><span class="line">            RGBTRIPLE triple;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// read RGB triple from infile</span></span><br><span class="line">            fread(&amp;triple, <span class="keyword">sizeof</span>(RGBTRIPLE), <span class="number">1</span>, inptr);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//<span class="doctag">TODO:</span> change the color of red to white</span></span><br><span class="line">            <span class="keyword">if</span> (triple.rgbtBlue == <span class="number">0x00</span> &amp;&amp; triple.rgbtGreen == <span class="number">0x00</span> &amp;&amp; triple.rgbtRed == <span class="number">0xff</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                triple.rgbtBlue = <span class="number">0xff</span>;</span><br><span class="line">                triple.rgbtGreen = <span class="number">0xff</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// write RGB triple to outfile</span></span><br><span class="line">            fwrite(&amp;triple, <span class="keyword">sizeof</span>(RGBTRIPLE), <span class="number">1</span>, outptr);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// skip over padding, if any</span></span><br><span class="line">        fseek(inptr, padding, SEEK_CUR);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// then add it back (to demonstrate how)</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; padding; k++)</span><br><span class="line">        &#123;</span><br><span class="line">            fputc(<span class="number">0x00</span>, outptr);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// close infile</span></span><br><span class="line">    fclose(inptr);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// close outfile</span></span><br><span class="line">    fclose(outptr);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// success</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><figcaption><span>[bmp.h] []</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BMP-related data types based on Microsoft's own</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdint.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// aliases for C/C++ primitive data types</span></span><br><span class="line"><span class="comment">// https://msdn.microsoft.com/en-us/library/cc230309.aspx</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">uint8_t</span>  BYTE;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">uint32_t</span> DWORD;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int32_t</span>  LONG;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">uint16_t</span> WORD;</span><br><span class="line"></span><br><span class="line"><span class="comment">// information about the type, size, and layout of a file</span></span><br><span class="line"><span class="comment">// https://msdn.microsoft.com/en-us/library/dd183374(v=vs.85).aspx</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    WORD bfType;</span><br><span class="line">    DWORD bfSize;</span><br><span class="line">    WORD bfReserved1;</span><br><span class="line">    WORD bfReserved2;</span><br><span class="line">    DWORD bfOffBits;</span><br><span class="line">&#125; __attribute__((__packed__))</span><br><span class="line">BITMAPFILEHEADER;</span><br><span class="line"></span><br><span class="line"><span class="comment">// information about the dimensions and color format</span></span><br><span class="line"><span class="comment">// https://msdn.microsoft.com/en-us/library/dd183376(v=vs.85).aspx</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    DWORD biSize;</span><br><span class="line">    LONG biWidth;</span><br><span class="line">    LONG biHeight;</span><br><span class="line">    WORD biPlanes;</span><br><span class="line">    WORD biBitCount;</span><br><span class="line">    DWORD biCompression;</span><br><span class="line">    DWORD biSizeImage;</span><br><span class="line">    LONG biXPelsPerMeter;</span><br><span class="line">    LONG biYPelsPerMeter;</span><br><span class="line">    DWORD biClrUsed;</span><br><span class="line">    DWORD biClrImportant;</span><br><span class="line">&#125; __attribute__((__packed__))</span><br><span class="line">BITMAPINFOHEADER;</span><br><span class="line"></span><br><span class="line"><span class="comment">// relative intensities of red, green, and blue</span></span><br><span class="line"><span class="comment">// https://msdn.microsoft.com/en-us/library/dd162939(v=vs.85).aspx</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    BYTE rgbtBlue;</span><br><span class="line">    BYTE rgbtGreen;</span><br><span class="line">    BYTE rgbtRed;</span><br><span class="line">&#125; __attribute__((__packed__))</span><br><span class="line">RGBTRIPLE;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/05/24/cmusic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -541,7 +728,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -554,7 +741,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
