@@ -163,6 +163,225 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/03/deployjupyter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avat.JPG">
+      <meta itemprop="name" content="Yilin">
+      <meta itemprop="description" content="Thoughts. Notes.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Parking Site">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/06/03/deployjupyter/" class="post-title-link" itemprop="url">Jupyter Notebook 配置及常见技巧</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-06-03 14:04:57" itemprop="dateCreated datePublished" datetime="2018-06-03T14:04:57Z">2018-06-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-11 12:24:29" itemprop="dateModified" datetime="2020-04-11T12:24:29Z">2020-04-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>按照不同项目的要求，选择相应的 conda 环境和合适的内核。</p>
+<p>顶部的选项卡是 Files、Running和 Cluster。</p>
+<p>Files显示当前目录中的所有文件和文件夹。点击 Running选项卡会列出所有正在运行的 notebook。我们可以在该选项卡中管理这些 notebook。</p>
+<p>Clusters 用于创建多个用于并行计算的内核。现在，一般使用 ipyparallel ，因此 cluster 选项卡如今用处不多。</p>
+<h2 id="启动-Jupyter-Notebook-服务器"><a href="#启动-Jupyter-Notebook-服务器" class="headerlink" title="启动 Jupyter Notebook 服务器"></a>启动 Jupyter Notebook 服务器</h2><p>按照<a href="https://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html" target="_blank" rel="noopener">Jupyter文档</a>，我们可以看到整体的架构：</p>
+<p>Browser————Notebook Server（read notebook files）————Kernel</p>
+<p>核心是服务器，Browser 将其呈现为 Web 应用形式，保存文件为JSON 格式的 ipynb 。这样内核无需运行 python。</p>
+<p>由于 notebook 和内核分离，两者之间传递任何语言的代码。早期的两个非 Python 内核分别是 R 语言和 Julia 语言。因此，Jupyter 一词，也是由 Julia、Python 和 R 组合而成。</p>
+<h2 id="关闭-Jupyter"><a href="#关闭-Jupyter" class="headerlink" title="关闭 Jupyter"></a>关闭 Jupyter</h2><ol>
+<li>保存 notebook，关闭</li>
+<li>关闭服务器</li>
+</ol>
+<h2 id="notebook-界面"><a href="#notebook-界面" class="headerlink" title="notebook 界面"></a>notebook 界面</h2><p>了解 cell 和命令面板<br>自动保存快捷键：esc + “C”</p>
+<h2 id="关于-Cell"><a href="#关于-Cell" class="headerlink" title="关于 Cell"></a>关于 Cell</h2><pre><code>执行代码并移动到下一格： Shift + Enter
+执行代码保持在这一格：Control + Enter
+代码补齐：tab
+查看文档中的使用建议：Shift + Tab （可 2 次显示完整内容）</code></pre><h2 id="关于-Markdown"><a href="#关于-Markdown" class="headerlink" title="关于 Markdown"></a>关于 Markdown</h2><ol>
+<li><a href="https://daringfireball.net/projects/markdown/basics" target="_blank" rel="noopener">一般使用</a></li>
+<li>数学公式 <a href="http://data-blog.udacity.com/posts/2016/10/latex-primer/" target="_blank" rel="noopener">Latex使用</a> </li>
+<li>Github 上的<a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="noopener">指南</a></li>
+<li>速查指南 <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank" rel="noopener">速查</a></li>
+</ol>
+<h2 id="熟悉快捷键"><a href="#熟悉快捷键" class="headerlink" title="熟悉快捷键"></a>熟悉快捷键</h2><ol>
+<li>模式转换：在编辑模式和命令模式中转换。<br> 编辑模式中：增加内容。在上一个cell中执行‘shift + enter’，键入enter 进入编辑模式<br> 命令模式中：执行命令。在编辑模式中，键入escape ，进入命令模式。</li>
+<li>命令模式下，可以呼出帮助列表<br> H：help list<br> A：在上方（Above）创建新的cell<br> B：在下方（Below）创建新的cell<br> M/Y：切换md与代码<br> L：打开行号表示（line number）<br> DD：连续按两次d，可以删除cell<br> S：保存文件<br> Command + P／Shift + Control：打开命令面板，搜索指令，也可以鼠标选择小键盘符号</li>
+<li>总之要多尝试才能熟悉 :D</li>
+</ol>
+<h2 id="Magic-关键字"><a href="#Magic-关键字" class="headerlink" title="Magic 关键字"></a>Magic 关键字</h2><p>Magic 关键字是可以在单元格中运行的特殊命令，能让你控制 notebook 本身或执行系统调用,<br>例如更改目录。</p>
+<blockquote>
+<p>notebook 中可以使用 %matplotlib 将 matplotlib 设置为以交互方式工作</p>
+</blockquote>
+<p>按照作用域不同，分为两类<br>类型一：<code>%</code> 是行 magic 命令<br>类型二：<code>%%</code> 是单元格 magic 命令</p>
+<ol>
+<li><code>timeit</code>:计时代码的运算时间</li>
+<li><code>matplotlib</code>／<code>matplotlib inline</code> :创造可视化内容时，我们可以使用对应的交互模块／绘画包，嵌入内容<br>PS：一般，可以通过命令传递参数，以选择特定后端</li>
+<li><code>%pdb</code>:这是在notebook中进行调试的命令，开启交互式调试器。在代码出错的时候，可以检查当前命名空间中的变量。<br>代码调试器<a href="https://docs.python.org/3/library/pdb.html" target="_blank" rel="noopener">文档参考</a></li>
+<li>更多<a href="http://ipython.readthedocs.io/en/stable/interactive/magics.html" target="_blank" rel="noopener">参考</a></li>
+</ol>
+<h2 id="转换-Notebook"><a href="#转换-Notebook" class="headerlink" title="转换 Notebook"></a>转换 Notebook</h2><p>注意：Notebook 时扩展名为 <code>.ipynb</code> 的大型 JSON 文件。</p>
+<p>内置的 nbconvert 可以直接转换 notebook 成 HTML、Markdown、幻灯片等形式。</p>
+<p>转换命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter nbconvert --to html notebook.ipynb</span><br></pre></td></tr></table></figure>
+<p>转换命令<a href="https://nbconvert.readthedocs.io/en/latest/usage.html" target="_blank" rel="noopener">参考文档</a></p>
+<h2 id="幻灯片展示"><a href="#幻灯片展示" class="headerlink" title="幻灯片展示"></a>幻灯片展示</h2><ol>
+<li>设置显示模式：<br>在菜单栏中，点击 “View” &gt;“Cell Toolbar”&gt;“Slideshow”</li>
+</ol>
+<p>然后每个cell 可以定义为不同的显示类型{Slide,sub slide,fragment,skip,notes}.<br>    Slides：是你从左向右移动的完整幻灯片。<br>    Sub-slides：按上／下的箭头时，子幻灯片会显示，一般起补充说明作用。<br>    Fragments：最初是隐藏的。<br>    Skip：会忽略幻灯片中的单元格<br>    Notes：会将为演讲者保留备注</p>
+<ol start="2">
+<li>运行幻灯片</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter nbconvert notebook.ipynb --to slides</span><br></pre></td></tr></table></figure>
+
+<p>这条命令可以直接将 notebook 转换为幻灯片所需要的文件，但还需要提交给 HTTP 服务器才能真正看到演示文稿。</p>
+<p>** 提交到服务器，并直接显示! **</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter nbconvert notebook.ipynb --to slides --post serve</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/18/anaconda/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avat.JPG">
+      <meta itemprop="name" content="Yilin">
+      <meta itemprop="description" content="Thoughts. Notes.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Parking Site">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/05/18/anaconda/" class="post-title-link" itemprop="url">About Anaconda</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-05-18 19:38:24" itemprop="dateCreated datePublished" datetime="2018-05-18T19:38:24Z">2018-05-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-07 12:23:20" itemprop="dateModified" datetime="2020-04-07T12:23:20Z">2020-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="tl-dr"><a href="#tl-dr" class="headerlink" title="tl;dr"></a>tl;dr</h2><p>仍在更新中……<br> Anaconda和 Jupyter Notebook 使用后的推荐度很高，在此整理一下笔记。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h3><p> Anaconda 是数据科学常用包的 Python 发行版，简单理解为管理工具。<br>其主要基于 conda 衍生而来，而这个 conda 就是包／环境管理器。<br>它可以帮助你更简单地按照不同的项目需求创建编程环境；分隔不同 Python 版本、不同包版本；安装、卸载和更新包。<br>除了 conda ，其中还包含 150 多个包及 dependency。</p>
+<h2 id="Conda"><a href="#Conda" class="headerlink" title="Conda"></a>Conda</h2><h3 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h3><p>包管理器用于在计算机上安装库和其他软件。平时使用 python 的时候，我们通常使用默认的 Python 默认包管理器 pip。conda 与之相似，但其中可管理的包为数据科学领域，也支持其他非 Python 包。</p>
+<h3 id="虚拟环境管理"><a href="#虚拟环境管理" class="headerlink" title="虚拟环境管理"></a>虚拟环境管理</h3><p>conda 同时还有虚拟环境管理的作用，类似于 virtualenv 和 pyenv 。</p>
+<h3 id="Jupyter-notebook"><a href="#Jupyter-notebook" class="headerlink" title="Jupyter notebook"></a>Jupyter notebook</h3><p>本质上是一种文档，其中可以组合保存说明文本、图像、代码（可执行）、公式和其他可视化内容。<br>自2011年开始流行，目前已经成为了数据分析的标准环境。</p>
+<h2 id="安装-Anaconda"><a href="#安装-Anaconda" class="headerlink" title="安装 Anaconda"></a>安装 Anaconda</h2><p>anaconda 中使用的 Python 不影响以及安装在本地的 Python 。它使用的是 anaconda 附带的 Python。<br>使用 <code>conda list</code> 命令查看所有安装的包版本。<br>使用  <code>conda upgrade --all</code> 命令更新所有，避免报错。<br>使用  <code>conda install package_name</code> 安装新包<br>    可以多个，例如 conda install numpy scipy pandas<br>    也可指定版本号 conda install numpy= 1.09</p>
+<p>安装时会自动安装 dependency<br>使用 <code>conda remove package_name</code>  卸载<br>使用 <code>conda upgrade package_name</code> 更新<br>不知道包的具体名字，则用 <code>conda search search_term</code> 搜索</p>
+<h2 id="环境管理"><a href="#环境管理" class="headerlink" title="环境管理"></a>环境管理</h2><h3 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h3><p><code>conda create -n env_name list of packages</code></p>
+<h3 id="进入环境"><a href="#进入环境" class="headerlink" title="进入环境"></a>进入环境</h3><p><code>source activate my_env</code> 进入环境</p>
+<h3 id="保存和加载环境"><a href="#保存和加载环境" class="headerlink" title="保存和加载环境"></a>保存和加载环境</h3><p><code>conda env export &gt; environment.yaml</code>  保存环境为YAML </p>
+<h3 id="列出环境"><a href="#列出环境" class="headerlink" title="列出环境"></a>列出环境</h3><p><code>conda env list</code></p>
+<h3 id="删除环境"><a href="#删除环境" class="headerlink" title="删除环境"></a>删除环境</h3><p><code>conda env remove -n env_name</code></p>
+<h2 id="安装使用-Jupyter-notebook"><a href="#安装使用-Jupyter-notebook" class="headerlink" title="安装使用 Jupyter notebook"></a>安装使用 Jupyter notebook</h2><p>notebook 能将数据处理后需要展示的一切内容集中在一起。</p>
+<h3 id="题外话：文学化编程概念"><a href="#题外话：文学化编程概念" class="headerlink" title="题外话：文学化编程概念"></a>题外话：文学化编程概念</h3><p>早在1984年，Donald Knuth 就提出了 Notebook 所应用的文字表达编程的概念。我们不只是可以为程序编写额外的文档内容，而是可以讲文字叙述和程序代码融合在一起。更好地向人解释，我们如何解决问题的逻辑和方法。</p>
+<p><code>让我们集中精力向人们解释我们希望计算机做什么，而不是指示计算机做什么。</code></p>
+<p>文学化编程概念已经发展成为了一门完整的编程语言，即 Eve。</p>
+<h3 id="在-anaconda-环境中安装-notebook"><a href="#在-anaconda-环境中安装-notebook" class="headerlink" title="在 anaconda 环境中安装 notebook"></a>在 anaconda 环境中安装 notebook</h3><p><code>conda install jupyter notebook</code> 即可</p>
+<h3 id="启动-notebook"><a href="#启动-notebook" class="headerlink" title="启动 notebook"></a>启动 notebook</h3><p><code>jupyter notebook</code></p>
+<p>服务器主页会在浏览器页面中打开。默认情况下，notebook 服务器的运行地址是 <a href="http://localhost:8888。">http://localhost:8888。</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/07/10/hangman/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -863,7 +1082,7 @@ buffer[2] == 0xff &amp;&amp;
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -876,7 +1095,7 @@ buffer[2] == 0xff &amp;&amp;
       <div class="site-state-item site-state-tags">
             <a href="/tags">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
