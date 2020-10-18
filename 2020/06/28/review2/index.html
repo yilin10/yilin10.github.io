@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="RL knowledge List {.collection-title}  Name">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MachineLearning_Review Outline">
+<meta property="og:url" content="http://yoursite.com/2020/06/28/review2/index.html">
+<meta property="og:site_name" content="Parking Site">
+<meta property="og:description" content="RL knowledge List {.collection-title}  Name">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-28T14:45:41.000Z">
+<meta property="article:modified_time" content="2020-06-28T12:45:41.000Z">
+<meta property="article:author" content="Yilin">
+<meta property="article:tag" content="Machine Learning">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/06/28/review2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>MachineLearning_Review Outline | Parking Site</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Parking Site</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">A castle on the cloud.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/28/review2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avat.JPG">
+      <meta itemprop="name" content="Yilin">
+      <meta itemprop="description" content="Thoughts. Notes.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Parking Site">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MachineLearning_Review Outline
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-06-28 14:45:41 / Modified: 12:45:41" itemprop="dateCreated datePublished" datetime="2020-06-28T14:45:41Z">2020-06-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="RL-knowledge-List-collection-title"><a href="#RL-knowledge-List-collection-title" class="headerlink" title="RL knowledge List {.collection-title}"></a>RL knowledge List {.collection-title}</h4><p>  Name                                                                                                                                                                       Tags                keypoints</p>
+<hr>
+<p>  <a href="https://www.notion.so/Value-of-the-action-dc23f4d068974f1e8f23defd171f684e" target="_blank" rel="noopener">Value of the action</a>                                                                          W1_MAB             Value of action = <strong>expected reward when the action is taken,</strong> q * (a) are defined as the expected<strong>reward R_t</strong> from the action A_t but q*(a) we dont know→ we need to estimate it<br>  <a href="https://www.notion.so/Sample-Average-Method-d29ee43e3a82486397aa066fd57fb934" target="_blank" rel="noopener">Sample-Average Method</a>                                                                      W1_MAB             Q_t(a) are defined as (sum of rewards when a taken prior to t)/(number of times a taken prior to t),<br>  <a href="https://www.notion.so/the-doctor-example-628183170f064f1cb5d96a2eb55d33c1" target="_blank" rel="noopener">the doctor example</a>                                                                            W1_MAB             As the doctor <strong>observe more patients</strong>, the estimated approach the true action value <strong>(**</strong>the sample average method<strong>**)</strong><br>  <a href="https://www.notion.so/Action-Selection-d40dc90743ac40948901191d21a9e0b1" target="_blank" rel="noopener">Action Selection</a>                                                                                W1_MAB             <strong>The greedy action</strong> → they think it currently is the <strong>best</strong>! → has the largest estimated action value <strong>The agent is trying to get the most reward it can!</strong><br>  <a href="https://www.notion.so/Balance-b94cf7bea3ff401391facb960862c0c4" target="_blank" rel="noopener">Balance</a>                                                                                                  W1_MAB             short-term reward: choose greedy action → gamma = 0, not thinking about future at all long term reward: choose non-greedy action→ sacrifice immediate reward→ hopping to get more information about other actions → gamma = 1, thinking about future gamma: <strong>discount factor</strong><br>  <a href="https://www.notion.so/Exploration-exploitation-Dilemma-b8d53016554e4a6ca9165464588a3792" target="_blank" rel="noopener">Exploration- exploitation Dilemma</a>                                               W1_MAB             conflict? balance?<br>  <a href="https://www.notion.so/Estimate-action-value-incrementally-f872794d04ce4d0eadb0ef7c88f0df2e" target="_blank" rel="noopener">Estimate action value incrementally</a>                                          W1_MAB             <strong>Web advertisement problem</strong><br>  <a href="https://www.notion.so/Incremental-Update-Rule-fe87835e60544143a3b3f7632d711e4b" target="_blank" rel="noopener">Incremental Update Rule</a>                                                                                      Q_n+1 ⇒ 1/n * Sum(Ri)| i = 1 to n ⇒ 1/n *(R_n+ Sum(Ri)| i = 1 to n-1) <strong>Q_n+1 = Q_n + ( Rn -Q_n)/n**</strong>New Estimate ← Old Estimate + StepSize (Target -OldEstimate)<em>*<br>  <a href="https://www.notion.so/Non-stationery-Bandit-Problem-c999008dfb284f3a91eb6dfdfd4e3cbf" target="_blank" rel="noopener">Non- stationery Bandit Problem</a>                                                     W1_MAB             ???<br>  <a href="https://www.notion.so/What-is-the-Trade-Off-2145435420e14fa3a83792428fb068fd" target="_blank" rel="noopener">What is the Trade Off</a>                                                                      W1_MAB             Exploration: improve knowledge for long term benefit Exploitation: exploit short term benefit WE can not do both simultaneously<br>  <a href="https://www.notion.so/Epsilon-Greedy-Action-Selection-9206fa15eb684f0bae3c1c758a77b011" target="_blank" rel="noopener">Epsilon-Greedy Action Selection</a>                                                  W1_MAB             ROLL a DICE <strong>epsilon: the possibility of choosing to explore</strong><br>  <a href="https://www.notion.so/Optimistic-Initial-Values-0fcc1cac55f1443680d6b88ca93db815" target="_blank" rel="noopener">Optimistic Initial Values</a>                                                              W1_MAB             encourage exploration in early steps<br>  <a href="https://www.notion.so/Upper-Confidence-Bound-Action-Selection-d5a8d824db284edda1667e7977f4ec5f" target="_blank" rel="noopener">Upper Confidence Bound Action Selection</a>                                  W1_MAB             <strong>UCB = Upper Confidence Bound Use to decide the Action Selection Process,**</strong>between<strong><strong>Exploration</strong></strong>&amp;<strong><strong>Exploitation</strong></strong>How UCB action-selection uses<strong><strong>uncertainty</strong></strong>in<strong><strong>estimation</strong></strong>to drive exploration**<br>  <a href="https://www.notion.so/The-difference-of-MAB-and-MDP-832560e6d30a4e3e8998823d09ceb653" target="_blank" rel="noopener">The difference of MAB and MDP</a>                                                      W2_MDP             MAB: same situation at each time→ single state→ the same action is always optimal <strong>MDP</strong>: different situation→ different response→ action chosen affect the amount of reward we can get into the future<br>  <a href="https://www.notion.so/Example-d3c8c74f287b409eaae61c71a44c2688" target="_blank" rel="noopener">Example</a>                                                                                                  W2_MDP             <strong>Bandit algorithm</strong> tells a <strong>policy</strong>(which treatment to choose) for each trial. If he choose the <strong>sub optimal</strong>medicine (i.e., performance of the medicine is less than other one) to treat the patient, then the cumulative performance will decrease. Unlike bandit, <strong>In MDP when you take an action, you will be in different state. MAB = MDP with**</strong>single<strong><strong>state</strong></strong>Situation = state, the action A_t change the state in MDP, create a new state St+1**<br>  <a href="https://www.notion.so/What-is-MDP-8a72bfda58964606b7f839164d346eb0" target="_blank" rel="noopener">What is MDP?</a>                                                                                         W2_MDP             carrot / other vegetable , but different situation calls for different reactions carrot(lion) <strong>think about long term impact of our decisions</strong><br>  <a href="https://www.notion.so/How-to-represent-the-dynamics-of-an-MDP-1dbd4649162c4287b063d4b2f53a09e9" target="_blank" rel="noopener">How to represent the dynamics of an MDP</a>                                  W2_MDP             dynamics , transition dynamics from one state → to another<br>  <a href="https://www.notion.so/Formalization-of-MDP-0feedc1ade444ece85e37c7669a02dcb" target="_blank" rel="noopener">Formalization of MDP</a>                                                                        W2_MDP             MDP formalization is flexible and abstract. \</em> states can be low level abstraction or high level abstractions, so it can be usde in various usages. (e.g. pixels, or object description in a photo) * time step can be short or very large<br>  <a href="https://www.notion.so/What-s-the-relationship-of-MDP-and-RL-20586ce962ee4a01b8d8bef531637cc4" target="_blank" rel="noopener">What’s the relationship of MDP and RL?</a>                                     W2_MDP             RL : solve control task or prediction task MDP: sequential decision making problems, forma lize a wide range of this problems<br>  <a href="https://www.notion.so/RL-f5cfeebb513c40be8db64035d2331622" target="_blank" rel="noopener">RL</a>                                                                                                            W2_MDP             RL: the goal for the agent is to maximize the future reward describe how the reward are related to the goal of the agent: long term goal, reward and future motion <strong>Returen Gt are defined as R_t+1 + R_t+2 + R_t+3 +…</strong> E(G) =E (sum(R…..)) maximize the expected Return → should be finite<br>  <a href="https://www.notion.so/identify-episodic-tasks-cdfb8f18d9cf4a488625d186f0d02455" target="_blank" rel="noopener">identify episodic tasks</a>                                                                  W2_MDP             naturally breaks into chucks called episodes each episode begins independently of how the previous one ends. e.g. <strong>Chess Game</strong><br>  <a href="https://www.notion.so/What-is-a-Reward-Hypothesis-c8615c73760f44eba669dcc8fd63982d" target="_blank" rel="noopener">What is a Reward Hypothesis?</a>                                                         W2_MDP             maximize the expected value expected future retuen That all of what we mean by goals and purposes can be well thought of as <strong>maximization of the expected valu</strong>e of the <strong>cumulative sum</strong> of <strong>a received scalar signal****</strong>(<strong>reward</strong>). Goals and purpose can be thought of as the maximization of the expected value of the cumulative sum of scalar rewards received<br>  <a href="https://www.notion.so/Continuing-Tasks-43f184f816064caa836527dead3de930" target="_blank" rel="noopener">Continuing Tasks</a>                                                                                W2_MDP<br>  <a href="https://www.notion.so/Examples-of-Episodic-and-continuing-tasks-684d286985d6486dbbd9bf3a15a7bdf5" target="_blank" rel="noopener">Examples of Episodic and continuing tasks</a>                              W2_MDP             Epsodic: chess game regardless of how the game end, the new game states indepently<br>  <a href="https://www.notion.so/W2-summary-bd86d42e90f24c0fa271aafdffc15e33" target="_blank" rel="noopener">W2 summary</a>                                                                                            W2_MDP             MDP can formalize all problems in RL { State, Action, Rewards} Long term consequences, Actin → Future States + Rewards <strong>The Goal of RL: maximize**</strong>Total future reward → balance immediate reward with long term actions expected discounted sum of future rewards<em>*<br>  <a href="https://www.notion.so/Discount-56ad4836c9da412ebd42926bdc7ec027" target="_blank" rel="noopener">Discount</a>                                                                                                W2_MDP             0&lt;gamma &lt;1 , the return remains finite gamma → 1, care about short term reward gamma→0 , we care about long term reward<br>  <a href="https://www.notion.so/Solve-RL-650caf9eefc04143b91281105b262fda" target="_blank" rel="noopener">Solve RL</a>                                                                                                W2_MDP             first step → MDP problems<br>  <a href="https://www.notion.so/Value-Functions-Bellman-Equations-2f8e6a71506747c0becabc565377bca3" target="_blank" rel="noopener">Value Functions, Bellman Equations</a>                                             W3_Policy&amp;Belman   Once the <strong>problem is formulated as an MDP</strong>, finding the<strong>optimal policy</strong> is more efficient when using <strong>value functions</strong>. This week, you will learn the definition of policies and value functions, as well as Bellman equations, which is the key technology that all of our algorithms will use.<br>  <a href="https://www.notion.so/Policy-6df27ee5811a412abfc8dab0c5421988" target="_blank" rel="noopener">Policy</a>                                                                                                    W3_Policy&amp;Belman   choose an action → reward + next state A policy is a distribution over actions for each possible state.<br>  <a href="https://www.notion.so/stochastic-and-deterministic-policy-e60a6adcf3834613ab160ff0dcd9cf48" target="_blank" rel="noopener">stochastic and deterministic policy</a>                                          W3_Policy&amp;Belman   <strong>Deterministic Policy: A Policy maps each states to a single action.**</strong>probability of 1** Policy(s) = a, States = s0, s1, s2 ; Actions = a0, a1, a2 (use Pie) <strong>Pi(s0) → a1, Pi(s1)→a0, Pi(s2)→a0.</strong> of course you can have same action for different state. In general, a policy assigns possibility to each action in each state. <strong>Pi(a|s) → represent a probability of selection of action a in state S Stochastic Policy: multi action be selected with non zero probability distribution → select actions in state S.**</strong>The stochastic policy might take the same step as the deterministic policy did.→ reach the Goal. Exploration/Exploitation trade-off (Epsilon greedy): can be useful for exploration**<br>  <a href="https://www.notion.so/generate-examples-of-valide-policies-for-MDP-10cb945ef35147df960d7c654cc3e11d" target="_blank" rel="noopener">generate examples of valide policies for MDP</a>                        W3_Policy&amp;Belman   It is important that Policy only depends on the current state, not on the<strong>time and previous state Valid policies:</strong>You don’t know about <strong>previous state</strong> anymore!!!!<strong>**You dont know</strong>time! Invalide Policies:<strong>The action depends on **something other than the state</strong><br>  <a href="https://www.notion.so/Summary-3686ba3bf2bd4c08a020b3b8a4f86442" target="_blank" rel="noopener">Summary</a>                                                                                                  W3_Policy&amp;Belman   <strong>A policy maps**</strong>the current state<strong>**onto a set of possibilities for taking each action Policy only depends on the current state</strong><br>  <a href="https://www.notion.so/Value-Functions-35ba82844c274d6487a04fd3de1c18db" target="_blank" rel="noopener">Value Functions</a>                                                                                  W3_Policy&amp;Belman   Delayed Reward: short term gain / long term gain? How to get a policy that achieve the most reward in the long term run? → Value Function is introduced to solve this issue.<br>  <a href="https://www.notion.so/Describe-the-role-of-state-value-action-value-function-ed7b70a3921d49d5bcbe34e25950aff2" target="_blank" rel="noopener">Describe the role of state value/ action value function</a>   W3_Policy&amp;Belman   State Value Function: v(s) are defined as Expectation of (Future Reward an agent can expect to receive stating from a particular state) Action Value Function q_pi(s,a) are defined as Expected_pi (G_t | S_t =S, A_t = a) Value function predict rewards into the future<br>  <a href="https://www.notion.so/the-relation-between-value-functions-and-policies-16206bc9699048ffa6ea7edc530e5771" target="_blank" rel="noopener">the relation between value functions and policies</a>              W3_Policy&amp;Belman   action, state, policy<br>  <a href="https://www.notion.so/examples-of-valid-value-function-for-a-given-MDP-e32f7033af4f4d2ca73013b489205c9e" target="_blank" rel="noopener">examples of valid value function for a given MDP</a>                W3_Policy&amp;Belman   Chess game Reward : win +1; draw or loss 0 (not enough information to tell us how to achieve the goal) Value Function: Value V_pi(s) → <strong>probability for winning</strong> if we follow <strong>current policy Pi</strong>, at the <strong>current state</strong><br>  <a href="https://www.notion.so/Bellman-equation-611f4bc9b7544e02ab19cb5f15feacb3" target="_blank" rel="noopener">Bellman equation</a>                                                                                W3_Policy&amp;Belman   value of state and its possible successor derive <strong>Bellman equation</strong> ← <strong>state value function</strong> / <strong>action value function Understand how Bellman equation relates →**</strong>current and future values V_pi(s) are defined as the E_pi (Gt| St = s)** and G_t = R_t + gamma \</em> G_t+1<br>  <a href="https://www.notion.so/Why-Bellman-equation-c82b8550492f412e8c5ac1fb85b3d557" target="_blank" rel="noopener">Why Bellman equation</a>                                                                        W3_Policy&amp;Belman   we can only directly solve small DMP problems use Bellman equation, possible to solve chess problems, scale up to large problems<br>  <a href="https://www.notion.so/Optimal-Policies-c0193e08099a440ab6f5c9a2def6ae79" target="_blank" rel="noopener">Optimal Policies</a>                                                                                W3_Policy&amp;Belman   Policy→ how an agent behave → Value Function What’s the goal of RL: We want to find the best policy in the long run! How to find → we can get different Value on different Policy →<strong>In some state, Policy had different value→ pi(1) ≥pi(2)</strong> iff line 1 is<strong>above</strong> line 2 <strong>An optimal policy**</strong>PI*<strong><strong>is that it</strong></strong>always has the highest possible value<strong><strong>in every state. There’s always</strong></strong>at least one Optimal policy( maybe more)<strong>Proof: Pi(3) = Pi(1) , Pi(2) , Optimal → pi *⇒ alwasy exist optimal policy!!!!<br>  <a href="https://www.notion.so/How-to-find-Optimal-policy-a8b4de6e66df4c53a2ccd4a47ad2c968" target="_blank" rel="noopener">How to find Optimal policy</a>                                                            W3_Policy&amp;Belman   simple question→ Brute Force Search complex→how to optimize the search in the policy space?→ Bellman Optimality Equations<br>  <a href="https://www.notion.so/W3-Summary-a8d0ef8a26e24079ae570cb5a3c11d70" target="_blank" rel="noopener">W3 Summary</a>                                                                                            W3_Policy&amp;Belman   what is a policy→ current state → tell an agent how to behave determinate: map sate → an action stochastic: map each state to a probability distribution value function on States and Actions, probability to win<br>  <a href="https://www.notion.so/The-optimal-state-value-function-4121337c33f84b53bf5c80751b0397c8" target="_blank" rel="noopener">The optimal state-value function:</a>                                               W3_Policy&amp;Belman   **Is unique in every finite MDP</strong> The Bellman optimality equation is actually <strong>a system of equations</strong>, one for each state, so if there are N states, then there are N equations in N unknowns. If the dynamics of the environment are known, then in principle one can solve this system of equations for the optimal value function using any one of a variety of methods for solving systems of nonlinear equations. All optimal policies share <strong>the same optimal state-value function</strong>.<br>  <a href="https://www.notion.so/What-is-DP-fa20f67b6bd94e529091357e7feb79fb" target="_blank" rel="noopener">What is DP</a>                                                                                            W4_DP              Dynamic Programming function p can be used to solve <strong>Policy evaluation and Control problem</strong><br>  <a href="https://www.notion.so/Policy-Evaluation-Control-5c58fbb8bd2e4a5fbecc3e5e9ebd2e6c" target="_blank" rel="noopener">Policy Evaluation &amp; Control</a>                                                            W4_DP              distinction between policy evaluation and control Control ⇒task of finding a policy to obtain as much as possible DP problems use <strong>Bellman equations</strong> to define<strong>iterative algorithms</strong> for both policy evaluation and control<br>  <a href="https://www.notion.so/Policy-Evaluation-823e7262af1f48c6be233f4a4196c2ac" target="_blank" rel="noopener">Policy Evaluation</a>                                                                              W4_DP              How good pi is? → pi → V_pi pi, p,gamma → DP → v_pi optimal policy! Control task complete <strong>iff</strong> <strong>current policy = optimal policy V_pi → policy evaluation pi * → control algorithms → compute value → DP</strong><br>  <a href="https://www.notion.so/Iterative-Policy-Evaluation-833c8f050f4343dfa2a4837f8f9183e4" target="_blank" rel="noopener">Iterative Policy Evaluation</a>                                                          W4_DP              DP are working as turning <strong>Bellman Equation</strong> into<strong>update rules. First algorithm in DP → Iterative Policy Algorithms equation → iterative → get a approximate value → closer and closer to the value function(</strong>updated rule)Each iterationS → Sweep →v_pi V_pi is the unique solution to the bellman Equations<br>  <a href="https://www.notion.so/Policy-Improvements-ea005f6f425745f1b8f9c0be43f83a98" target="_blank" rel="noopener">Policy Improvements</a>                                                                          W4_DP<br>  <a href="https://www.notion.so/Policy-Iteration-5bd29e0376944fb3b02991a326423f21" target="_blank" rel="noopener">Policy Iteration</a>                                                                                W4_DP              You randomly select a <strong>policy</strong> and f<strong>ind value function</strong> corresponding to it , then find a <strong>new (improved) policy based on the previous value function</strong>, and so on this will lead to <strong>optimal policy</strong><br>  <a href="https://www.notion.so/sequential-decision-making-problem-fb0d78a82bd14910855bd36dfdb2ec11" target="_blank" rel="noopener">sequential decision making problem</a>                                            W2_MDPsocrative    Long-term goal are generally <strong>more important</strong>than short-term consequences Agent does not always know <strong>completely the state of the environment e.g., partial observable problems</strong><br>  <a href="https://www.notion.so/MDP-1127e71bd39f4cbd88f78124d65d1bfe" target="_blank" rel="noopener">MDP</a>                                                                                                          W2_MDPsocrative    State Space Action Space One-Step Dynamics In continuing tasks the discount factor must be smaller than 1<br>  <a href="https://www.notion.so/Explain-briefly-what-is-the-reward-hypothesis-edb58fb27e3f45b1b085f3390c9d2873" target="_blank" rel="noopener">Explain briefly what is the reward hypothesis</a>                      W2_MDPsocrative    The reward hypothesis says that the agent is going to maximize the value of expected value of the cumulative sum of the received reward on the current state<br>  <a href="https://www.notion.so/Bellman-Expectation-Equations-b977456165294004ad2664f411cdbddd" target="_blank" rel="noopener">Bellman Expectation Equations</a>                                                      W2_MDPsocrative    allows to evaluate a policy might be computationaly infeasible for large problems requires the knowledge of one step dynamics<br>  <a href="https://www.notion.so/Why-DP-8d40a04573c44b5d9d5cd48ac23eb713" target="_blank" rel="noopener">Why DP</a>                                                                                                    W4_DPsocrative     solving MDP is <strong>not easy</strong><br>  <a href="https://www.notion.so/Define-sweep-in-Iterative-Policy-Evaluation-48ac5ab3a2bd474c9edffdfc2c534422" target="_blank" rel="noopener">Define sweep in Iterative Policy Evaluation</a>                          socrative           first we have an initial step to estimation the value of the policy, then we use an iterative approach to update an estimation for the policy evaluation function, So we have a V’_pi to update the V_pi value at each<strong>k step**</strong>for all states = at each<strong><strong>iteration of the algorithm</strong></strong>, it<strong><strong>updates the value function</strong></strong>for all the states , it<strong><strong>“sweeps” through the state space</strong></strong>of the problem**<br>  <a href="https://www.notion.so/4c9f4508021b40cd869c68195b54d143" target="_blank" rel="noopener">Untitled</a>                                                                                                                             </p>
+<h4 id="Slides-Review-collection-title"><a href="#Slides-Review-collection-title" class="headerlink" title="Slides Review {.collection-title}"></a>Slides Review {.collection-title}</h4><p>  Name                                                                                                                                                Tags                            Keypoints</p>
+<hr>
+<p>  <a href="https://www.notion.so/Bias-Variance-Tradeoff-8f2cb4f893334f95be70505772073a81" target="_blank" rel="noopener">Bias-Variance Tradeoff</a>                                             05_ModelEvaluation/Selection   How to evaluate a model, can not use loss function The <strong>Bias-Variance</strong> is a framework to analyze the performance of models. 1. <strong>variance</strong>measures <strong>the difference between each model learned from a particular dataset</strong> and what we expect to learn. More sample / simpler model → decrease Variance 2. <strong>bias</strong> measures the difference between<strong>truth</strong> (𝑓) and what we expect to learn: more complex model→ decrease Bias<br>  <a href="https://www.notion.so/Model-Assessment-befa4d00bf174472880fc242701dd437" target="_blank" rel="noopener">Model Assessment</a>                                                         05_ModelEvaluation/Selection   high variance : under fitting high bias: overfitting <strong>low bias, low variance: good !</strong><br>  <a href="https://www.notion.so/Regularization-and-Bias-Variance-620f0729dc7748a3a0c84bbc6c9db68a" target="_blank" rel="noopener">Regularization and Bias-Variance</a>                         05_ModelEvaluation/Selection   <strong>The Bias-Variance decomposition explains why regularization allows to improve the error on unseen data.**</strong>Lasso outperforms Ridge regression when few features are related to the output<em>*<br>  <a href="https://www.notion.so/Training-Error-Prediction-Error-4fec80687ae1405295f4d8f57e9c0d3e" target="_blank" rel="noopener">Training Error/Prediction Error</a>                           05_ModelEvaluation/Selection   Training Error: t_n-y(x_n) Prediction Error: (t_n-y(x_n)) \</em> p(x,t)<br>  <a href="https://www.notion.so/In-practice-26cbf101a2654236a21f51690a662d82" target="_blank" rel="noopener">In practice</a>                                                                   05_ModelEvaluation/Selection   1. Split randomly data into a training set and test set 2. Optimize model parameters using the training set 3. Estimate the prediction error using the test set <strong>high bias:</strong>training error is close to test error but they are both higher than expected <strong>high variance:</strong>training error is smaller than expected and it slowly approaches the test error<br>  <a href="https://www.notion.so/data-split-a6ad270dd822425496dd30702bc8adfa" target="_blank" rel="noopener">data split</a>                                                                     05_ModelEvaluation/Selection   Training Data → train model get parameter Validation Data→ <strong>validation error</strong> → select model with validation step → Test Data to <strong>estimate prediction error</strong> <strong>→ raise 2 problems</strong> 1. enough validation data → less training data 2. overfitting ? How to solve ⇒ Cross Validation <strong>LOOCV (</strong> lower bias but expensive to compute)/<strong>K-Fold cross validation (s</strong>plit in to K-folds, little bias, cheaper to compute<strong>)</strong><br>  <a href="https://www.notion.so/How-to-choose-the-model-4cb3c28bb2364a9ab14e33ae4ad3b7db" target="_blank" rel="noopener">How to choose the model</a>                                           05_ModelEvaluation/Selection   <strong>Reducing the variance</strong> choose right feature: the most <strong>effective</strong> subset of all the possible features dimensional reduction:<strong>lower- dimensional</strong> space <strong>Regularization</strong>: the values of the parameters are shrunked toward zero<br>  <a href="https://www.notion.so/No-free-lunch-Theorems-71cf25067f6a4777a62e7a3d20b5b7fb" target="_blank" rel="noopener">No free lunch Theorems</a>                                             05_ModelEvaluation/Selection   Y<strong>our favourite learner will not be always the best!</strong><br>  <a href="https://www.notion.so/Feature-Selection-353b446cd83842fb8553792d034e9483" target="_blank" rel="noopener">Feature Selection</a>                                                       05_ModelEvaluation/Selection   AIC, BIC, AdjusterR2, etc. Cross-Validation<br>  <a href="https://www.notion.so/Dimensionality-reduction-e11cc1df66704b09800f98141bda1bec" target="_blank" rel="noopener">Dimensionality reduction</a>                                         05_ModelEvaluation/Selection   ⚠️<strong>Principal Component Analysis (PCA) P38**</strong>Dimensionality reduction aims at reducing the dimensions of input space, but it differs from feature selection in two major respects: it uses all the features and maps them into a lower-dimensionality space it is an unsupervised approach!<em>*<br>  <a href="https://www.notion.so/Bagging-and-Boosting-3829f02f39ac426f942df256376da4d1" target="_blank" rel="noopener">Bagging and Boosting</a>                                                 05_ModelEvaluation/Selection   \</em> Bootstrap Aggregation= <strong>Bagging</strong>（自主聚合）→ decrease high variance → suitable foe learner that is <strong>low bias and high variance/ overfitting problem ← bagging is suitable to decrease variance**</strong>* Boosting: high bias, the learner is not good enough ← need to fix it, boosting !!!!!!! → decrease bias/ still use simple learner/ keep the same variance (<em>* still using weak learners: decision trees …<strong>)</strong> AdaBoost<br>  <a href="https://www.notion.so/VC-dimension-f39133a2bf6e4aeb8bc505685ea07b9c" target="_blank" rel="noopener">VC dimension????</a>                                                             06_LearningTheory              <strong>⚠️VC dimension</strong><br>  <a href="https://www.notion.so/Kernel-Ridge-Regression-1d111df2ebf04672b073894318f67700" target="_blank" rel="noopener">Kernel Ridge Regression</a>                                           07_KernalMethods               看图片分布辨别用什么方法，linear/kernel<br>  <a href="https://www.notion.so/Kernel-Design-86ae42aa55f1411b942389b0c4add267" target="_blank" rel="noopener">Kernel Design</a>                                                               07_KernalMethods<br>  <a href="https://www.notion.so/Kernel-Regression-57086a92341a45538f2e19a266ba2a13" target="_blank" rel="noopener">Kernel Regression</a>                                                       07_KernalMethods<br>  <a href="https://www.notion.so/Kernel-Trick-40b6431dee7b4e539806943994c2fde5" target="_blank" rel="noopener">Kernel Trick</a>                                                                 07_KernalMethods               can be used in …. Ridge Regression K-NN Regression Perceptron (Nonlinear) <strong>PCA</strong> Support Vector Machines … even <strong>Generative Models</strong><br>  <a href="https://www.notion.so/What-is-MAB-e48b9aa755d8477f94b026394f994327" target="_blank" rel="noopener">What is MAB?</a>                                                                  13_MAB                         <strong>Multi-arm bandit! far-sighted: gamma exploration/exploitation</strong><br>  <a href="https://www.notion.so/different-categories-a09681f99b334600b3ca172992c2a31e" target="_blank" rel="noopener">different categories</a>                                                 13_MAB                         <strong>- Determistic</strong> <strong>- Stochastic { frequentist MAB , Bayesian }**</strong>-<strong><strong>Adversarial Infinite time horizon: need to explore to gather more information</strong></strong>to find the best overall action<strong><strong>Finite time horizon: need to</strong></strong>minimize short term loss<strong><strong>because</strong></strong>uncertainty**<br>  <a href="https://www.notion.so/real-example-de11131ff78146268a96750070e7c245" target="_blank" rel="noopener">real example</a>                                                                 13_MAB                         clinic test on new treatments! game playing slot machine Oil drilling new/unexplored/best/optimal<br>  <a href="https://www.notion.so/epsilon-greeedy-7cf057e16a104b32b23494fa0ebfce1c" target="_blank" rel="noopener">epsilon greeedy</a>                                                           13_MAB                         1-e → greedy, instant reward; e → explore<br>  <a href="https://www.notion.so/softmax-2464e477392a4d86bd6f5c5aef1472b3" target="_blank" rel="noopener">softmax</a>                                                                           13_MAB                         <strong>Weights the actions according to its estimated value Q(a|s) τ is a temperature parameter which decreases over time</strong> Even if these algorithms converge to the <strong>optimal choice</strong>, we do not know how much we lose during the learning process<br>  <a href="https://www.notion.so/MDP-relate-to-MAB-7829c890c85a4e979c68bf2a935fef1e" target="_blank" rel="noopener">MDP -relate to - MAB</a>                                                    13_MAB                         MDP → special case ( <strong>when the sate is single</strong>) → MAB State, Arm , Transition Matrix, Reward Function, discount factor(<strong>0&lt; gamma &lt;1</strong> ), initial probability(<strong>optimistic estimation</strong>)<br>  <a href="https://www.notion.so/Goal-6ceac9d071584176b7e3cd15726bbeea" target="_blank" rel="noopener">Goal</a>                                                                                 13_MAB                         maximize expectation value also minimize regret<br>  <a href="https://www.notion.so/Formulation-7e043a9e69bf45129d5a5abefc31ec44" target="_blank" rel="noopener">Formulation</a>                                                                   13_MAB                         <strong>1. Frequentist formulation</strong> R(a1), . . . R(aN ) are unknown parameters <strong>A policy selects at each time step an arm based on the observation history</strong> <strong>2. Bayesian formulation</strong> R(a1), . . . R(aN ) are random variables with<strong>prior distributions</strong> f1,…,fN <strong>A policy selects at each time step an arm based on the observation history and**</strong>on the provided priors**<br>  <a href="https://www.notion.so/Optimism-in-face-of-Uncertainty-914d8a52ff584cd5af507c7b47acfbed" target="_blank" rel="noopener">Optimism in face of Uncertainty</a>                           13_MAB                         uncertain → <strong>explore</strong>→ get information &amp; some loss in short term<br>  <a href="https://www.notion.so/Upper-confidence-Bound-Approach-f53fae565baf41bf96695c7d83ae9f83" target="_blank" rel="noopener">Upper confidence Bound Approach</a>                           13_MAB                         ⭐️statistic approach → get a balance between <strong>exploration and exploitation</strong>the bound length Bt(ai) depends on how much information we have on an arm, i.e., the number of times we pulled that arm so far Nt(ai)<br>  <a href="https://www.notion.so/UCB1-0d707d9c277241b7bf093f777d8ff05d" target="_blank" rel="noopener">UCB1</a>                                                                                 13_MAB                         ⭐️!!!!!!!!<br>  <a href="https://www.notion.so/Thompson-Sampling-13fbbf7f9fb34ebfb9fd9798f6eda574" target="_blank" rel="noopener">Thompson Sampling</a>                                                       13_MAB                         😇<strong>Pull</strong> the arm a with the highest sampled value <strong>Update</strong>the prior incorporating the new information Thompson Sampling → a method to solve MAB problem →<strong>optimal balance about explore/ exploit</strong> <strong>1. sample from distribution to generate reward estimate</strong> 2. pick the arm with highest expectation 3. apply the arm and observe the reward 4. update distribution<br>  <a href="https://www.notion.so/EXP3-175eca0901cf4ee59bfef7efea658765" target="_blank" rel="noopener">EXP3</a>                                                                                 13_MAB                         💥<strong>Variation of the Softmax algorithm</strong> Probability of choosing an arm,<br>  <a href="https://www.notion.so/Why-DP-c52678b3f3594b5780b40a7eb61efd36" target="_blank" rel="noopener">Why DP</a>                                                                             10_DP                          in order to find optimal policy of RL problem formulated in MDP, we need to find algorithms to evaluate policy value For small MDP problem→we can use <strong>brute force search</strong> For bigger MDP problem → <strong>DP can be used</strong> Dynamic Programming (DP) is a method that allow to <strong>solve a complex problem</strong> by <strong>breaking it down into**</strong>simpler sub-problems in a recursive manner** + Bellman Equation→ finite→unique Optimal solution→ <strong>pi*</strong><br>  <a href="https://www.notion.so/Policy-Evaluation-7f85d8a60b4142009608d5f2dea25a89" target="_blank" rel="noopener">Policy Evaluation</a>                                                       10_DP<br>  <a href="https://www.notion.so/Policy-Improvement-cdd84541c18d441d8d6121da16b94861" target="_blank" rel="noopener">Policy Improvement</a>                                                     10_DP<br>  <a href="https://www.notion.so/Policy-Iteration-94ed50a034b94fbb8f4bb0a66b971101" target="_blank" rel="noopener">Policy Iteration</a>                                                         10_DP<br>  <a href="https://www.notion.so/Generalized-Policy-Iteration-efd165addafa481d97b0d890a9346613" target="_blank" rel="noopener">Generalized Policy Iteration</a>                                 10_DP<br>  <a href="https://www.notion.so/Efficiency-of-DP-afb0dd98341347bebbd7ad32dab3407a" target="_blank" rel="noopener">Efficiency of DP</a>                                                         10_DP<br>  <a href="https://www.notion.so/b40ffc2ac9a544b2aea3d7654162c414" target="_blank" rel="noopener">Untitled</a>                                                                                  12_TDL<br>  <a href="https://www.notion.so/What-is-supervised-learning-09dd42ec845941349a2973e46514e4ed" target="_blank" rel="noopener">What is supervised learning</a>                                   02_SL                          It is the most popular and well established learning paradigm Data from an unknown function that maps an input 𝑥 to an output Goal: learn a good approximation of 𝑓 Classification if 𝑡 is discrete Regression if 𝑡 is continuous feature→ target Probability estimation if 𝑡 is a probability<br>  <a href="https://www.notion.so/When-to-apply-supervised-learning-9368d979e9434d5a88a4012ae29f986e" target="_blank" rel="noopener">When to apply supervised learning?</a>                      02_SL                          when human cannot perform the task When human can perform the task but cannot explain how When the task changes over time user-specific<br>  <a href="https://www.notion.so/overview-eebb4b1f277742e5b5ae42d1088b1645" target="_blank" rel="noopener">overview</a>                                                                         02_SL                          Define <strong>a loss function L</strong> Choose the<strong>hypothesis space H</strong> Find in H an approximation <strong>h of 𝑓 that minimizes L</strong><br>  <a href="https://www.notion.so/Elements-f4b15ce41a3b454ba85aa9ba88a82b1b" target="_blank" rel="noopener">Elements</a>                                                                         02_SL                          Representation → Model Evaluation → Model selection Optimization →<br>  <a href="https://www.notion.so/Optimization-aad6ba52f7354e8ebf69c8af318a6922" target="_blank" rel="noopener">Optimization</a>                                                                 02_SL                          Combinatorial optimization e.g.: Greedy search ❑ Convex optimization e.g.: Gradient descent ❑ Constrained optimization e.g.: Linear programming<br>  <a href="https://www.notion.so/Parametric-vs-Nonparametric-2f3dbd65c77d4ee1aa8dec7736320f92" target="_blank" rel="noopener">Parametric vs Nonparametric</a>                                   02_SL                          <strong>Parametric:**</strong>fixed and finite number of parameters** <strong>Nonparametric:</strong> <strong>the number of parameters depends on the training set</strong><br>  <a href="https://www.notion.so/Frequentist-vs-Bayesian-acf204d158654b37b936061b62e75c44" target="_blank" rel="noopener">Frequentist vs Bayesian</a>                                           02_SL                          Frequentist: use probabilities to model <strong>the sampling process</strong>Bayesian: use probability <strong>to model uncertainty about the estimate</strong><br>  <a href="https://www.notion.so/Linear-Regression-e2ff69a013c14ec68159dc22f804500a" target="_blank" rel="noopener">Linear Regression</a>                                                       03_LR<br>  <a href="https://www.notion.so/Least-Squares-924bcbc0f5af41b7a9101cfbd911c42c" target="_blank" rel="noopener">Least Squares</a>                                                               03_LR<br>  <a href="https://www.notion.so/Regularization-46f5c75c2edd40f38218fdc471676576" target="_blank" rel="noopener">Regularization</a>                                                             03_LR<br>  <a href="https://www.notion.so/Least-Squares-and-Maximum-Likelihood-d557dd03f5104c5083ed1ec12cd515d3" target="_blank" rel="noopener">Least Squares and Maximum Likelihood</a>                 03_LR<br>  <a href="https://www.notion.so/Linear-Classification-62efd37834f04330aca9d0e652bd16de" target="_blank" rel="noopener">Linear Classification</a>                                               04_LC                          Learn, from a dataset 𝒟, an approximation of function 𝑓 𝑥 that maps input 𝑥 to a discrete class*𝐶</em> (with k = 1,…,𝐾)<br>  <a href="https://www.notion.so/Multi-class-904a5fa9f4074fd79434119398440aad" target="_blank" rel="noopener">Multi-class</a>                                                                   04_LC                          In a multi-class problem we have K classes ❑ One-versus-the-rest approach uses K-1 binary cassifiers (i.e., that solve a two-class problem) each classifier discriminates 𝐶 and not 𝐶 regions ambiguity: region mapped to several classes ❑ One-versus-one approach uses K(K-1)/2 class binary classifiers each classifier discriminates between 𝐶 and 𝐶 𝑖𝑖 similary ambiguity of previous approach<br>  <a href="https://www.notion.so/hypothesis-space-5925fe181aa349258e514e2bda28f310" target="_blank" rel="noopener">hypothesis space</a>                                                         06_LearningTheory              A hypothesis h is consistent with a training dataset 𝒟 of the concept c if and only if h(x) = c(x) for each training sample in 𝒟<br>  <a href="https://www.notion.so/VC-Dimension-36bd603bcd504f3e8ba0ee0a2b08f775" target="_blank" rel="noopener">VC Dimension</a>                                                                 06_LearningTheory              VC Dimension <strong>We define a dichotomy of a set S of instances as a partition of S into two disjoint subsets, i.e., labeling each instance in S as positive or negative</strong> ❑ We say that a set of instances S is shattered by hypothesis space H if and only if for every dichotomy of S there exists some hypothesis in H consistent with this dichotomy ❑ The Vapnik-Chervonenkis dimension, VC(H), of hypothesis space H over instance space X, is the largest finite subset of X shattered by H<br>  <a href="https://www.notion.so/Kernel-Methods-a210af678264416a932ae7985c99869c" target="_blank" rel="noopener">Kernel Methods</a>                                                             07_KernalMethods               Kernel methods allow to make<strong>linear models</strong> work in nonlinear settings by mapping data to<strong>higher dimensions</strong>where it exhibits linear patterns<br>  <a href="https://www.notion.so/Kernel-in-1d-example-b36bf58eaf1b4f409891e79f41dbd2a5" target="_blank" rel="noopener">Kernel in 1d example</a>                                                 07_KernalMethods               linear separable<br>  <a href="https://www.notion.so/Kernel-Functions-6d5e1651cd4542d283168c388fba4dbf" target="_blank" rel="noopener">Kernel Functions</a>                                                         07_KernalMethods               The kernel function is defined as the <strong>scalar product</strong> between the feature vectors of two data samples: Kernel function is <strong>symmetric</strong>:𝑘x,x′ =𝑘x′,x<br>  <a href="https://www.notion.so/sample-based-methods-3d82183a9c204166b78b5eda8834892c" target="_blank" rel="noopener">sample-based methods</a>                                                 11_MonteCarlo                  With Dynamic Programming we are able to find the<strong>optimal value functio</strong>n and the <strong>corresponding optimal policy</strong><br>  <a href="https://www.notion.so/First-Visit-Evey-Visit-7f417b020d144649b1cf9d5392463209" target="_blank" rel="noopener">First-Visit &amp; Evey-Visit</a>                                           11_MonteCarlo                  Diff<br>  <a href="https://www.notion.so/Prediction-Control-9f854c78f30e455fa0a207b0ba00bced" target="_blank" rel="noopener">Prediction &amp; Control</a>                                                   11_MonteCarlo                  Diff <strong>Prediction:</strong> is to based on fixed policy to find maximize the estimation value of cumulated sum value. The input involves the policy Pi and MDP formulation. The output is the v_pi and q_pi <strong>Control:</strong> is to find be policy to achieve the goal, the policy is not fixed. The input is MDP description, and the output is the q_pi, V_pi, and <strong>Pi *</strong>(<strong>the optimal policy</strong>)<br>  <a href="https://www.notion.so/On-Policy-Off-Policy-cbff720ea95541fda85d052e53efc556" target="_blank" rel="noopener">On-Policy &amp; Off-Policy</a>                                               11_MonteCarlo                  Diff policy iteration → how to get the <strong>Pi</strong>value?<br>  <a href="https://www.notion.so/MC-Prediction-and-Control-028a28b1e1c24600bbe2250efa6e9fc4" target="_blank" rel="noopener">MC (Prediction and Control)</a>                                     11_MonteCarlo                  Monte Carlo<br>  <a href="https://www.notion.so/diff-between-DP-and-MC-07eacdfd293346f1a9a340476ae81822" target="_blank" rel="noopener">diff between DP and MC</a>                                             11_MonteCarlo                  ??<br>  <a href="https://www.notion.so/Valid-Kernel-5ed769ce2ee344c6ae0319ef3a597163" target="_blank" rel="noopener">Valid Kernel</a>                                                                 07_KernalMethods               From the <strong>Mercers theorem</strong>, any continuous, symmetric, positive semi-definite kernel function can be expressed as a dot product in a high-dimensional space.<br>  <a href="https://www.notion.so/Rigid-Regression-Logistic-regression-Lasso-f1eef5f775f74419a02d345786bb2fed" target="_blank" rel="noopener">Rigid Regression, Logistic regression, Lasso</a>   Example                         What is it?<br>  <a href="https://www.notion.so/SVC-sample-44de0a876e5c4f2c88606280897409e7" target="_blank" rel="noopener">SVC sample</a>                                                                     Example                         10^num_paramter, e.g. 100 = 10ˆ2<br>  <a href="https://www.notion.so/VC-dimension-2cd523747c714ca299843164c19bc01e" target="_blank" rel="noopener">VC dimension</a>                                                                 Example<br>  <a href="https://www.notion.so/GMM-583bdc9df8cf496d94b1ca2d855fdfbf" target="_blank" rel="noopener">GMM</a>                                                                                   Example                         GMM considers differently each dimension, <strong>by considering a generic covariance matrix</strong> while estimating the Gaussian distributions.<br>  <a href="https://www.notion.so/PARAMETRIC-NON-PARAMETRIC-bf8c4ed904ed43a5a4d07845e7b374be" target="_blank" rel="noopener">PARAMETRIC/NON–PARAMETRIC</a>                                       Example                         the difference<br>  <a href="https://www.notion.so/Q-learning-f4af7fdfe3934c0bbb2840703f550e9a" target="_blank" rel="noopener">Q-learning</a>                                                                     Example                         what is q learning?</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/21/pcsoraltest/" rel="prev" title="Can computers write meaningful music?">
+      <i class="fa fa-chevron-left"></i> Can computers write meaningful music?
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#RL-knowledge-List-collection-title"><span class="nav-number">1.</span> <span class="nav-text">RL knowledge List {.collection-title}</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Slides-Review-collection-title"><span class="nav-number">2.</span> <span class="nav-text">Slides Review {.collection-title}</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yilin"
+      src="/images/avat.JPG">
+  <p class="site-author-name" itemprop="name">Yilin</p>
+  <div class="site-description" itemprop="description">Thoughts. Notes.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yilin10" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yilin10" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yilin.zhu@mail.polimi.it" title="E-Mail → mailto:yilin.zhu@mail.polimi.it" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/ilin.chu0" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;ilin.chu0" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yilin</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
